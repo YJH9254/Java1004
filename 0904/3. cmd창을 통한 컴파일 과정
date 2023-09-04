@@ -22,7 +22,7 @@ cd JavaFullStatck_YJH    : JavaFullStatck_YJH 폴더를 연다
 cd practice              : practice 폴더를 연다
 dir                      : practice 폴더 안에 있는 파일을 확인한다
 --------------------------------------------------------------------
-javac Hello.java                 : 자바에 컴파일 하는 javac 명령어를 쓴다
+javac Hello.java         : 자바에 컴파일 하는 javac 명령어를 쓴다
         ----------       : "파일이름.확장자" 를 써준다. 
 --------------------------------------------------------------------
 java Hello               : "확장자 파일이름" 을 써준다. 
