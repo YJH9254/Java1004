@@ -1,0 +1,17 @@
+자바설치
+1. jdk 검색
+2. jdk 17
+3. msi 버전 다운로드
+4. 실행
+5. 윈도우 원노트에 설치화면 저장하기
+
+이클립스설치
+1. eclipse 검색
+2. org 선택
+3. eclipse-java-2023-06-R-win32-x86_64.zip 다운로드
+4. C드라이브에 "JavaFullStack_YJH" 파일 만들기
+5. 압축풀기
+
+자바실행
+1. Create module-info.java file은 쓰지 않음
+2. window-preferance-apperacne 화면색상
