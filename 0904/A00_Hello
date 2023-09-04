@@ -1,6 +1,6 @@
-package Study0904;
+package study0904;
 
-public class Hello {
+public class A00_Hello {
 	public static void main(String[] args) {
 		
 		// System.out.println()
@@ -42,9 +42,7 @@ public class Hello {
 	 
 	 // ()를 통해 연산 순서를 조절할 수 있다
 	 System.out.println("오늘 총 점심값: " + 5000 * 4 + "원" );
-	 // 문자열 뒤로 숫자가 있을때 ()를 안 쓴 경우
-	 System.out.println("오늘 총 간식값: " + 3500 + 5000 + "원" );
-         // 문자열 뒤로 숫자가 있을때 ()를 쓴 경우
 	 System.out.println("오늘 총 간식값: " + (3500 + 5000) + "원" );
+	 
 	}
 }
