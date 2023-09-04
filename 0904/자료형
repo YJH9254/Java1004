@@ -1,0 +1,30 @@
+package Study0904;
+
+public class Hello {
+	public static void main(String[] args) {
+		
+		// System.out.println()
+		// ()안에 전달한 데이터를 콘솔에 출력하는 명령어
+		System.out.println("Hello, world!");
+	/* 
+	    # ()안에 전달할 수 있는 자바의 데이터의 종류(자바의 리터럴)
+	    
+	 	1. 그냥 숫자 : 정수(Integer), 계산 가능
+	 	2. "" 사이에 들어간 모든 문자 : 문자열(String), +만 가능
+	 	3. '' 사이에 들어간 단 하나의 문자 ( 두 글자 이상은 안됨)
+	 	   : 문자 하나만(Character), 계산이 가능하긴 하다 
+	 	4. 소수 : 실수(Double), 계산 가능
+	 	5. true 또는 false : 참/거짓 데이터
+	 	6. 아주 큰 숫자 뒤에 L : 큰 정수(Long), 계산 가능
+	 	7. 소수 뒤에 F : 짧은 실수(float),5개 표시, 뒷자리를 반올림한다
+	 */
+	 System.out.println(123456);
+	 System.out.println(1231242142112142L);
+	 System.out.println(98.742146214542141214F);
+	 System.out.println("오늘의 메뉴: 토마토 스파게티");
+	 System.out.println('김');
+	 System.out.println(true);
+	 System.out.println(false);
+	
+	}
+}
