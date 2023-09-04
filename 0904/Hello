@@ -13,10 +13,11 @@ public class Hello {
 	 	2. "" 사이에 들어간 모든 문자 : 문자열(String), +만 가능
 	 	3. '' 사이에 들어간 단 하나의 문자 ( 두 글자 이상은 안됨)
 	 	   : 문자 하나만(Character), 계산이 가능하긴 하다 
-	 	4. 소수 : 실수(Double), 계산 가능
+	 	4. 소수 : 실수(Double), 계산 가능, 소수점 15자리까지 표시
 	 	5. true 또는 false : 참/거짓 데이터
 	 	6. 아주 큰 숫자 뒤에 L : 큰 정수(Long), 계산 가능
-	 	7. 소수 뒤에 F : 짧은 실수(float),5개 표시, 뒷자리를 반올림한다
+	 	7. 소수 뒤에 F : 짧은 실수(float), 소수점 6자리까지 표시
+	 	   뒷자리를 반올림한다
 	 */
 	 System.out.println(123456);
 	 System.out.println(1231242142112142L);
@@ -26,5 +27,24 @@ public class Hello {
 	 System.out.println(true);
 	 System.out.println(false);
 	
+	 // 숫자끼리는 +, -, *, / 등 계산을 할 수 있다
+	 System.out.println(25 * 88);
+	 System.out.println(91 / 3); // 정수끼리 계산하면 몫만 구한다
+	 System.out.println(91 / 3.0); // 소수점 아래 계산을 원하면 실수로 연산한다
+	 System.out.println(3333333333L / 1234.333); // 길면 L을 붙인다
+	 
+	 // 문자열은 다른 타입과 +를 통해 이어붙이기를 할 수 있다
+	 System.out.println("Apple" + "Pen");
+	 System.out.println("평균 점수: " + 85.8);
+	 System.out.println(300 + "개");
+	 System.out.println("오늘 점심을 먹었는가? " + true);
+	 System.out.println("안경을 썼는가? " + false);
+	 
+	 // ()를 통해 연산 순서를 조절할 수 있다
+	 System.out.println("오늘 총 점심값: " + 5000 * 4 + "원" );
+	 // 문자열 뒤로 숫자가 있을때 ()를 안 쓴 경우
+	 System.out.println("오늘 총 간식값: " + 3500 + 5000 + "원" );
+         // 문자열 뒤로 숫자가 있을때 ()를 쓴 경우
+	 System.out.println("오늘 총 간식값: " + (3500 + 5000) + "원" );
 	}
 }
