@@ -1,0 +1,36 @@
+
+1. 메모장을 킨다.
+2. 아래 소스를 그대로 작성한다.
+--------------------------------------------
+// practice/Hello.java
+
+public class Hello {
+	public static void main(String[] args) {
+		System.out.println("Hello, world!");
+	}
+}
+--------------------------------------------
+3. 내가 지정한 주소  "C:\JavaFullStack_YJH\practice"에 
+   "Hello.java" 라는 이름으로 저장한다.
+4. "Widnow키" + "R" 키를 동시에 누른다.
+5. 빈 공간에 타자로 "cmd" 를 쳐서 실행한다.
+6. cmd 창이 보이면 아래 순서대로 입력한다. 
+  
+cd /                     : c드라이브 지정
+dir                      : 폴더 내 디렉터리 확인
+cd JavaFullStatck_YJH    : JavaFullStatck_YJH 폴더를 연다   
+cd practice              : practice 폴더를 연다
+dir                      : practice 폴더 안에 있는 파일을 확인한다
+--------------------------------------------------------------------
+javac Hello.java                 : 자바에 컴파일 하는 javac 명령어를 쓴다
+        ----------       : "파일이름.확장자" 를 써준다. 
+--------------------------------------------------------------------
+java Hello               : "확장자 파일이름" 을 써준다. 
+
+7. 이로써 컴파일 과정이 끝났다. 우리는 메모장과 cmd등을 통하여 작업을 하였다. 
+  이를 통합한 개발환경이 "IDE(Integrated Development Environment)" 이다.
+
+ - 통합된 개발 환경 (메모장 + 콘솔 + 컴파일러 + 디버거 + ...)
+ - 개발을 진행하면서 필연적으로 발생하는 과정에 사용되는 여러가지 프로그램들을
+   하나로 묶어놓은 프로그램 ( 소스코드 작성-> 컴파일->실행->소스코드 수정...
+ - Eclipse, IntelliJ, VsCode ... 등 
