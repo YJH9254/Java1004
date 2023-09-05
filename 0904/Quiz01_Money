@@ -1,4 +1,4 @@
-public class Q02_Money {
+public class Q01_Money {
 	public static void main(String[] args) {
 
 		//한 번에 출력하는 경우
