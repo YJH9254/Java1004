@@ -1,0 +1,21 @@
+
+public class Q03_PersonInfo {
+	
+	public static void main(String[] args) {
+		
+		String name = "홍길동";
+		int age = 20;
+		String t1 = "010-1234-1234";
+		double hight = 178.5;
+		double weight = 75;
+		String blood = "O";
+		
+		System.out.println("========= 출력 결과 =========");
+		System.out.println("이름\t: " + name);
+		System.out.println("나이\t: " + age);
+		System.out.println("Tel\t: " + t1);
+		System.out.println("키\t: " + hight);
+		System.out.println("몸무게\t: " + weight);
+		System.out.println("혈액형\t: " + blood);
+	}
+}
