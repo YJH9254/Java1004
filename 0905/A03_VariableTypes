@@ -1,0 +1,141 @@
+
+public class A03_VariableTypes {
+	
+	/*
+	 	# 정수 타입
+	 	
+	 		- byte	(1byte, 8bit)
+	 		  2^8(256)가지의 값을 표현할 수 있다
+	 		  8bit = 전구 개수 8개 / 2의 8제곱 = 256
+	 		              램 기준으로 치면 8기가임
+	 		              
+	 		- short (2byte, 16bit)
+	 		  2^16(65534)가지의 값을 표현할 수 있다
+	 		  Short.MAX_VALUE 사용 가능
+	 		  -32,768 ~ -1 / 0 ~ 32,767
+	 		  
+	 		- char	(2byte, 16bit, 양수만)
+	 		  0 ~ 65535 까지의 값을 사용할 수 있다 (65536가지의 양수 값)
+	 		
+	 		- int	(4byte, 32bit)
+	 		  2^16(4294967296)가지의 값을 표현할 수 있다
+	 		  -2,147,483,648 ~ -1 / 0 ~ 2,147,483,647 
+	 		  Integer.MAX_VALUE 사용가능
+	 		  Integer.parseInt() 로 int로 변환 할 수 있음.
+	 		  
+	 		- long	(8byte, 64bit) : 2^32는 너무 길어서 생략함.
+	 		  Long.MIN_VALUE, Long.MAX_VALUE 로 표기 가능
+	 		  L은 리터럴(literal)이란? 소스 코드의 고정된 값을 나타내는 표기법이다.
+	 		  리터럴은 데이터(값) 그 자체이다. 변수에 넣는 변하지 않는 데이터이다.
+	 		 	  
+	 	# 실수 타입
+	 	
+	 	- 부동 소수점 방식을 이용한다.
+	 	- float    (4byte)
+	 	- double   (8byte)
+	 	
+	 	# 참/거짓 타입
+	 		
+	 		- true 아니면 false(진실 혹은 거짓 생각하면 편함)
+	 		- boolean 으로 비교하는 타입
+	 	
+	 	# 문자열
+	 	
+	 		- String을 쓴다. 
+	 		
+	    # public static void main(String[] args) {} 를 써야되는 이유
+	    
+	 	 - public 은 모든 곳에서 접근 가능한 접근제한자이다. 
+		   private(자기 자신 클래스만 가능), protected(자기 자신과 상속된 클래스만)
+		 - 자바는 변수나 함수를 메모리에 할당하는 방법이 2가지가 있습니다.
+		   첫번째는 static 영역에 선언하는 것이고, 다른 하나는 heap 영역에 선언
+		   new 연산자를 쓰는 것이다.
+		 - void는 함수가 끝날 때 리턴값이 없다. 즉 main 메소드는 끝날 때 프로그램이
+		   종료 되기 때문에 리턴값이 필요가 없다. main 메소드에 void 는 필수다.
+		 - main 함수명은 고정된 규칙이기 때문에 시작은 항상 main부터 쓴다.
+		 - args 는 변수명이기 때문에 꼭 args가 아니어도 상관없으나
+	      String[] args 구문 자체를 뺄 수는 없다.
+	*/
+	public static void main(String[] args) {
+		
+		int number = 999;
+		
+		// byte = -128 ~ 127 까지 왜냐하면 0이 포함되기 때문에.
+		byte num1 = 127;
+		// 강제로 (byte)로 대체하는 방법을 쓰면 한바퀴 돌고 -128이 된다.
+		// byte는 127까지니까 다시 처음으로 돌아와서 -128이 되는것. (오버플로우:버그)
+		byte num2 = (byte)128;
+		
+		System.out.println(number);
+		System.out.println(num1);
+		
+		byte byte_min = -128, byte_max = 127;
+		System.out.println("byte 타입의 최소값은 " + byte_min + "이고 "
+				+ "최대값은 " + byte_max + "입니다.");
+		
+		short short_min = -32768, short_max = 32767;
+		System.out.println("short 타입의 최소값은 " + short_min + "이고 "
+				+ "최대값은 " + short_max + "입니다.");
+		
+		int int_min = Integer.MIN_VALUE, int_max = Integer.MAX_VALUE;
+		             //-2147483648                 2147483647
+		System.out.println("int 타입의 최소값은 " + int_min + "이고 "
+				+ "최대값은 " + int_max + "입니다.");
+		
+		long long_min = -9223372036854775808L, long_max = 9223372036854775807L;					
+		
+		System.out.println("long 타입의 최소값은 " + Long.MIN_VALUE + "이고 "
+				+ "최대값은 " + Long.MAX_VALUE + "입니다.");
+		
+		// AC00 -> 44032 , AC00 는 유니코드이다. 44032를 넣으면 한글 "가" 가 된다.
+		
+		// char 타입에 넣는 정수값은 우리에게 보여줄때 문자로 바꿔서 보여준다.
+		char ch1 = 44032;
+		int num3 = 44032;
+		
+		System.out.println(ch1);
+		System.out.println(num3);
+		
+		// ''(문자)도 실제로는 정수 값을 가지고 있다
+		char ch2 = 'F'; 
+		char ch3 = '가';
+		
+		// 문자 타입 리터럴은 실제로 정수값이기 때문에 다른 정수타입에도 저장할 수 있다.
+		int num4 = 'F';
+		int num5 = '각';
+		
+		// 숫자 타입에 저장한 문자 리터럴을 출력하면 해당 문자의 실제 값을 확인할 수 있다
+		System.out.println(ch2);
+		System.out.println(ch3);
+		System.out.println(num4);
+		System.out.println(num5);
+		
+		// ASCII코드 : 0 ~ 127번까지의 코드
+		char ch4 = 65;
+		System.out.println(ch4);
+		
+		// 그냥 소수만 적는 것은 double 타입이기 때문에
+		// float에 저장하려고 할 때는 F를 붙여 크기를 줄여줘야 한다
+		float avg_score = 96.8F;
+		double avg_weight = 85.9999; // double은 그냥 적어도 된다
+		
+		System.out.println("평균 점수: " + avg_score);
+		System.out.println("평균 몸무게: " + avg_weight);
+		
+		// boolean 타입은 변수의 이름이 아주 중요하다
+		boolean isMale = true;
+		boolean goonpil = true;
+		boolean rich = false;
+		boolean powerOn = true;
+		
+		// 문자열
+		String welcomeMessage = "어서오세요 환영합니다!!";
+		System.out.println(welcomeMessage);
+		
+		// 계산기로   1. 프로그래머 로 변경.
+		// 유니코드   2. Hex 클릭.
+		// 표기법     3. AC00 유니코드를 입력.
+		//          4. 나온 값을 syso 를 통해 출력해서 어떤 문자인지 확인.
+		
+	}
+}
