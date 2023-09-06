@@ -33,6 +33,7 @@ Ctrl + F11 : 이전에 실행되었던 Run파일 실행
 Ctrl + space : 어휘의 자동완성(Content Assistance)
 Ctrl + Shift + O : 소스에 필요한 패키지를 자동으로 Import(추가) 시키기
 Ctrl + Shift + S : 열려진 파일 전부 저장 및 컴파일
+Shift + Tab : 들여쓰기
 ----------------------------------------------------------------------
 sysout > Ctrl + Space: System.out.println();
 try> Ctrl + Space: 기본 try-catch문 완성
