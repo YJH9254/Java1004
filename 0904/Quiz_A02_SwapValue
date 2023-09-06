@@ -1,4 +1,4 @@
-public class Q02_SwapValue {
+public class A02_SwapValue {
 	
 	public static void main(String[] args) {
 		
@@ -23,7 +23,6 @@ public class Q02_SwapValue {
 		////////////////////////////////////
 	
 		System.out.println("바꾼 후 a: " + a);
-		System.out.println("바꾼 후 b: " + b);
-			
+		System.out.println("바꾼 후 b: " + b);	
 	}
 }
