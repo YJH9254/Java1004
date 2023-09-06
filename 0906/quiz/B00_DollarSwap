@@ -1,1 +1,22 @@
+public class B00_DollarSwap {
+	
+	/*
+		한국 돈을 입력하면 현재 환율로 몇 달러인지 알려주는 프로그램을 만들어보세요.
+	 	(현재 환율은 검색해서 사용할 것)
+	*/
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in); // Ctrl + Shift + O
+		
+		System.out.print("원(won)을 입력해주세요 >> ");
+		
+		double won = sc.nextInt();
+		double rate = 1331.00;
+		double dollar = (won/rate);
+		
+		System.out.printf("현재 환율로 %.2f$입니다.\n",dollar);
+	
+	}
+}
 
