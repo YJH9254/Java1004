@@ -1,0 +1,28 @@
+public class A06_Pyramid {
+
+	public static void main(String[] args) {
+		
+		String star1 = "★★★★★★★★★";
+		String star2 = "★★★★★★★";
+		String star3 = "★★★★★";
+		String star4 = "★★★";
+		String star5 = "★";
+		
+		System.out.printf("%s\n",star1);
+		System.out.printf("%8s\n",star2);
+		System.out.printf("%7s\n",star3);
+		System.out.printf("%6s\n",star4);
+		System.out.printf("%5s\n",star5);
+		
+		// 가장 똑똑한 방법
+		String s = "*********\n"
+				 + " *******\n"
+				 + "  *****\n"
+				 + "   ***\n"
+				 + "    *\n";
+		System.out.printf("%s", s);
+		
+		
+		
+	}
+}
