@@ -1,5 +1,5 @@
 
-public class Q03_PersonInfo {
+public class A03_PersonInfo {
 	
 	public static void main(String[] args) {
 		
