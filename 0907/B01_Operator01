@@ -46,5 +46,69 @@ public class B01_Operator01 {
 	    System.out.println("a / c: " + (a / c));
 	    System.out.println("a % c: " + (a % c));
 		
+	    // Math.pow(a, b) : a 제곱 b의 결과를 반환한다
+	    // 간단하게 외우기 : 나한테 봔화나(바나나) 안봔화나(안바나나)
+	    double result = Math.pow(2, 10);
+	    
+	    System.out.println("pow의 결과: " + result);
+	    
+	    // Math.sqrt(a) : a의 제곱근을 반환한다(√1 루트1, √2 루트2, *ㄷ한자7)
+	    result = Math.sqrt(2);
+	    System.out.println("sqrt의 결과: " + result);
+	    
+	    // Math.abs(a) : a의 절대값을 반환한다(넣은 타입(int,doubble)으로 반환)
+	    int abs1 = Math.abs(-7);
+	    float abs2 = Math.abs(1.13f);
+	    double abs3 = Math.abs(3.33);
+	    
+	    System.out.println(abs1);
+	    System.out.println(abs2);
+	    System.out.println(abs3);
+	    
+	    // Math.round(a) : a를 소수 첫째 자리에서 반올림한 결과를 반환한다
+	    System.out.println(Math.round(123.456));
+	   
+	    // Math.ceil(a) : a를 소수 첫째 자리에서 올림한 결과를 반환한다
+	    // 세일은 이유불문 .앞에 일의 자리를 +1 해버림
+	    System.out.println(Math.ceil(123.111));
+	    
+	    // Math.floor(a) : a를 소수 첫째 자리에서 버림한 결과를 반환한다
+	    // 플루어는 .뒤에는 그냥 버려버림
+	    System.out.println(Math.floor(123.999));
+	    
+	    /* 
+	       # 원하는 자리에서 반올림하는 방법
+	    	
+	    	1. 반올림하고 싶은 자리를 소수 첫 번째 자리로 만든다
+	    	2. 반올림하고 다시 원래대로 돌려놓는다
+	    	3. 원래대로 돌려놓기 위해서는 소수로(.을 붙여서) 나눠야 한다
+	    */
+	    
+	    double value = 123.123456;
+	    double unit = Math.pow(10, 4);
+	    
+	    System.out.println(value * unit);
+	    System.out.println(Math.round(value * unit));
+	    System.out.println(Math.round(value * unit) / unit);
+	   
+	    // 연습1 : 12500을 반올림하여 13000으로 만들어보세요
+	    int val1 = 12500;
+	    double unit1 = Math.pow(10, 3);
+	    System.out.println((int)(Math.round(val1 / unit1) * unit1));
+	    
+	    // 풀이1 : 
+	    int q1 = 12500;
+	    System.out.println(Math.round(q1 / 1000.0) * 1000); 
+	    
+	    // 연습2 : 1.138을 반올림하여 1.13으로 만들어보세요
+	    double val2 = 1.138;
+	    double unit2 = Math.pow(10, 2);
+	    System.out.println(Math.floor(val2 * unit2) / unit2);
+	    
+	    // 풀이2 : 
+	    double q2 = 1.138;
+	    System.out.println(Math.floor(q2 * 100) / 100);
+	    
 	}
+	
 }
