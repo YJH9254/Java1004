@@ -1,0 +1,50 @@
+public class B01_Operator01 {
+	
+	/*
+	 	# 연산자 (Operator)
+	 	
+	 	 - 계산할 때 값 사이에 넣어서 쓰는 것
+	 	 - +, -, *, /, >, <, &, ...
+	 	 
+	 	# 산술 연산자
+	 	
+	 	+ : 더하기
+	 	- : 빼기
+	 	* : 곱하기
+	 	/ : 나누기
+	 	% : 나머지
+	 	※ 나누기는 정수(int)끼리 나누면 몫만 구하고, 
+	 	  계산에 실수(doubble)가 포함되어 있으면 정확한 결과를 구한다
+	 	※ 정수끼리의 산술 연산 결과는 정수고, 
+	 	  '정수와 실수'의 산술 연산 결과는 실수다
+    */
+	public static void main(String[] args) {
+		int a = 10, b = 7;
+		double c = 7;
+		System.out.println("a + b: " + (a + b));
+		System.out.println("a - b: " + (a - b));
+		System.out.println("a * b: " + (a * b));
+		System.out.println("a / b: " + (a / b));
+		System.out.println("a % b: " + (a % b));
+		System.out.println("c: " + c);
+		
+		// n으로 나눈 나머지 연산의 결과는 0 ~ n-1이다
+		// 5를 넣었으면 5-1을 한 0 ~ 4중에 나머지가 있다
+	    System.out.println(10 % 5);
+	    System.out.println(11 % 5);
+	    System.out.println(12 % 5);
+	    System.out.println(13 % 5);
+	    System.out.println(14 % 5);
+	    
+	    // char타입은 정수를 문자로 보여주는 것처럼
+	    // double/float 타입은 정수를 .0을 붙여 보여준다
+	    
+	    // 정수(int a)와 실수(double c)의 연산 결과 확인
+	    System.out.println("a + c: " + (a + c));
+	    System.out.println("a - c: " + (a - c));
+	    System.out.println("a * c: " + (a * c));
+	    System.out.println("a / c: " + (a / c));
+	    System.out.println("a % c: " + (a % c));
+		
+	}
+}
