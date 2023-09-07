@@ -1,0 +1,68 @@
+public class B00_Starbucks {
+	/*
+	 	커피 3개의 개수를 입력받고 각 메뉴를 몇 잔 시켰는지
+	  	총 가격은 얼마인지 출력해주는 프로그램을 만들어보세요
+	*/
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("주문하실 아메리카노 카페라떼, 카페모카의 "
+				         + "각 개수를 순서대로 입력해주세요.\n");
+		
+		int americano = sc.nextInt();
+		System.out.println("주문하신 \"아메리카노\"의 개수가 입력됐습니다."
+			           	+ "(" + americano + "개)");
+	
+		int cafelatte = sc.nextInt();
+		System.out.println("주문하신 \"카페라떼\"의 개수가 입력됐습니다."
+			           	+ "(" + cafelatte + "개)");
+		
+		int cafemocha = sc.nextInt();
+		System.out.println("주문하신 \"카페모카\"의 개수가 입력됐습니다."
+			           	+ "(" + cafemocha + "개)");
+	
+		
+		long americanoPrice = 1600 * americano;
+		long cafelattePrice = 2700 * cafelatte;
+		long cafemochaPrice = 3300 * cafemocha;
+		long totalPrice = americanoPrice+cafelattePrice+cafemochaPrice;
+		
+		System.out.println();
+		
+		System.out.println("\"아메리카노\"의 가격은 " + americanoPrice + "원이고\n" 
+				           +"\"카페라떼\"의 가격은 " + cafelattePrice + "원이고\n"
+				           +"\"카페모카\"의 가격은 " + cafemochaPrice + "원입니다.\n"
+				           +"이 세가지 커피의 총 가격은 " + totalPrice + "원입니다.");
+	  	}
+}
+	/*public static void main(String[] args) {
+		
+		// 상수 설정
+		int CANO_PRICE = 1600;
+		int LATTE_PRICE = 2700;
+		int MOCHA_PRICE = 3300;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("아메리카노 몇 잔? ");
+		int canoCount = sc.nextInt();
+		System.out.print("카페라떼 몇 잔? ");
+		int latteCount = sc.nextInt();
+		System.out.print("카페모카 몇 잔? ");
+		int mochaCount = sc.nextInt();
+		
+		String format = "아메리카노 - %d잔\n"
+		       		  + "카페라떼 - %d잔\n"
+		       		  + "카페라떼 - %d잔\n"
+		       		  + "----------------"
+		       		  + "총합\t%d￦\n";
+		
+		int totalPrice = canoCount * CANO_PRICE
+					+ latteCount * LATTE_PRICE
+					+ mochaCount * MOCHA_PRICE;
+		
+		System.out.printf(format, canoCount, latteCount, mochaCount, totalPrice);
+	  
+	}
+}
+*/
