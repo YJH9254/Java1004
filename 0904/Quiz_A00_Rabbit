@@ -1,4 +1,4 @@
-public class Rabbit {
+public class A00_Rabbit {
 	// 클래스 : 메소드들의 집합체
 	public static void main(String[] args) { 
 		// 메인메소드 : 명령문의 집합체 가장 먼저 실행됨
