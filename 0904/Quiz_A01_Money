@@ -1,3 +1,5 @@
+package quiz;
+
 public class A01_Money {
 	public static void main(String[] args) {
 
