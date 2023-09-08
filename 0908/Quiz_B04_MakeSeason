@@ -1,0 +1,85 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class B04_MakeSeason {
+	
+	/*
+	 	사용자가 몇 월인지 입력하면 해당하는 계절이 무엇인지 출력해보세요
+	 	(switch-case문으로 한번, if문으로도 한번)
+	*/
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("몇 월인지 입력하세요 >");
+		
+		int month = sc.nextInt();
+		
+		
+	/*	switch() {
+			case "Spring":
+				System.out.println("겨울입니다~ 따뜻하게 입으세요.");
+				break;
+			case 2:
+				System.out.println("겨울입니다~ 따뜻하게 입으세요.");
+				break;
+			case 3:
+				System.out.println("봄봄봄 봄이 왔어요");
+				break;
+			case 4:
+				System.out.println("봄감자가 맛있단다");
+				break;
+			case 5:
+				System.out.println("봄 너를 봄");
+				break;
+			case 6:
+				System.out.println("여름 아직도 안갔냐");
+				break;
+			case 7:
+				System.out.println("여름 아직도 안갔냐");
+				break;
+			case 8:
+				System.out.println("여름 아직도 안갔냐");
+				break;
+			case 9:
+				System.out.println("가을가을 하네");
+				break;
+			case 10:
+				System.out.println("가을가을 하네");
+				break;
+			case 11:
+				System.out.println("가을가을 하네");
+				break;
+			case 12:
+				System.out.println("겨울입니다~ 따뜻하게 입으세요.");
+				break;
+			
+			default: 
+				System.out.println("비정상적인 숫자를 입력하셨습니다. 바이");
+				break;
+		*/		
+		String	spring = "봄", 
+		        summer = "여름", 
+		          fall = "가을", 
+		        winter = "겨울";
+		
+		// 유효성 검사		
+		if (!(month >= 1 && month <= 12)) {
+			System.out.println("1부터 12의 숫자만 입력해주세요.");
+			
+		} else {
+			
+			if ( 3 >= month && 5 <= month ) {
+				System.out.println("3월부터 5월까진 " + spring + "입니다.");
+			} else if ( 6 >= month && 8 <= month ) {
+				System.out.println("6월부터 8월까진 " + summer + "입니다.");
+			} else if ( 9 >= month && 11 <= month ) {
+				System.out.println("9월부터 11월까진 " + fall + "입니다.");
+			} else {
+				System.out.println("12월부터 2월까진 " + winter + "입니다.");
+	
+			}
+		}
+	}
+}
