@@ -47,7 +47,6 @@ public class B01_Operator01 {
 	 	System.out.println("a % c: " + (a % c));
 		
 	 // Math.pow(a, b) : a 제곱 b의 결과를 반환한다
-         // 간단하게 외우기 : 나한테 봔화나(바나나) 안봔화나(안바나나)
 	        double result = Math.pow(2, 10);
 	    
 	        System.out.println("pow의 결과: " + result);
