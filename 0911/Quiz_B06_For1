@@ -25,6 +25,7 @@ public class B06_ForQuiz1 {
 			System.out.println("8의 배수: " + num);
 			}
 		}
+		System.out.println("\n");
 		
 		// 2번문제 100부터 300까지의 총합
 		int sum = 0;
@@ -33,6 +34,7 @@ public class B06_ForQuiz1 {
 			sum += num;
 		}
 		System.out.println("100부터 300까지의 총합: " + sum);
+		System.out.println("\n");
 		
 		// 3번문제 1000부터 2000까지의 10의 배수를 한 줄에 5개씩 출력
 		int count = 0;
