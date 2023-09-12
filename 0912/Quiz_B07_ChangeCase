@@ -1,1 +1,45 @@
+package quiz;
 
+import java.util.Scanner;
+
+public class B07_ChangeCase {
+
+	/*
+	 * 사용자가 문장을 입력하면 대문자는 소문자로, 소문자는 대문자로 바꿔서 출력해보세요 (영어가 아닌 문자는 그대로 출력)
+	 */
+
+	public static void main(String[] args) {
+
+		// 정수 + 문자(코드값) = 정수
+		// System.out.println('A' + 3);
+		// System.out.println((char)('A' + 3));
+
+		// if문에 적용해야됨(?)
+		// char ch = 'A' + 32;
+		// System.out.println(ch);
+		
+		System.out.println("문장을 입력하세요 >> ");
+		
+		Scanner sc = new Scanner(System.in);
+		String word = sc.nextLine();
+		
+		// 한글자씩 검사한다
+		for (int i = 0; i < word.length(); i++) {
+			int ch = word.charAt(i);
+			int alpha = (ch + 32);
+			int beta = (ch - 32);
+			String result ="";
+			
+		// 유효성 검사를 한다
+			if (ch >= 'A' && ch <= 'Z') {
+				ch = alpha;
+				System.out.print((char) alpha);
+			} else if (ch >= 'a' && ch <= 'z') {
+				ch = beta;
+				System.out.print((char) beta);
+			} else {
+				System.out.print(word);
+			}
+		}
+	}
+}
