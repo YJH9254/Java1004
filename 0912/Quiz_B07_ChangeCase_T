@@ -1,0 +1,31 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class B07_ChangeCase_T {
+	
+	public static void main(String[] args) {
+		
+		// 스캐너는 한줄로도 사용가능
+		System.out.println("문장을 입력하세요 >>");
+		String text = new Scanner(System.in).nextLine();
+		String result ="";
+		
+		// 한글자씩 검사한다
+		for (int i = 0; i < text.length(); ++i) {
+			char ch = text.charAt(i);
+			
+			if (ch >= 'a' && ch <= 'z') {
+				result += (char)(ch - 32);
+			} else if (ch >= 'A' && ch <= 'Z') {
+				result += (char)(ch + 32);
+			} else {
+				result += ch;
+			}
+		}
+		
+		System.out.println("원본: " + text);
+		System.out.println("바뀐것: " + result);
+	}
+	
+}
