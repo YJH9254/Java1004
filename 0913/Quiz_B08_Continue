@@ -1,0 +1,41 @@
+package quiz;
+
+public class B08_ContinueQuiz {
+	
+	/*
+	 	1. 600부터 800사이에 있는 7의 배수를 모두 출력
+	 	
+	 	2. 1부터 200까지의 숫자 중 2의 배수도 아니고
+	 	   3의 배수도 아닌 숫자들을 모두 출력
+	 	   
+	 	3. 출력했던 모든 숫자들의 합을 출력
+	*/
+	public static void main(String[] args) {
+		
+		int sum = 0;
+		
+		// 1. 600 ~ 800 between 7의 배수
+		for(int i = 600; i <= 800; i++ ) {
+			
+			if (i % 7 == 0) {
+		
+				System.out.println("7의 배수: " + i);
+				sum += i;
+			}
+		}
+		System.out.println("-----------------------");
+		
+		// 2. 1 ~ 200 between !2 !3 모두 출력
+		for (int i = 0; i <= 200; i++) {
+			if (i % 2 == 0 || i % 3 == 0) {
+				continue;
+			}
+			System.out.println("2,3의 배수가 아닌 숫자: " + i);
+			sum += i;
+		}	System.out.println("-----------------------");
+		
+		// 3. print all number sum
+		
+		System.out.println("출력했던 i의 합: " + sum);
+	}
+}
