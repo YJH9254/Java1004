@@ -1,0 +1,45 @@
+package quiz;
+
+public class B10_Gugudan2 {
+
+	// for문으로 출력했던 구구단을 while문으로 출력해보세요
+
+	public static void main(String[] args) {
+
+		// 1. 가로로
+
+		int dan = 2;
+
+		while (dan < 10) {
+			System.out.printf("%d단: ", dan);
+			int gop = 1;
+			while (gop < 10) {
+				// 곱하기를 다시 1로 만들어야 다시 반복할 수 있다 int mul = 1; while (mul < 10) {
+				System.out.printf("%dx%d=%-2d ", dan, gop, dan * gop);
+				gop++;
+			}
+			System.out.println();
+			dan++;
+		}
+
+		System.out.println("--------------------------------------");
+
+		dan = 2;
+		while (dan <= 9) {
+			System.out.printf("%d단\t", dan++);
+		}
+		System.out.println();
+
+		int gop2 = 1;
+		while (gop2 <= 9) {
+			int dan2 = 2;
+			while (dan2 <= 9) {
+				System.out.printf("%dx%d=%d\t", dan2, gop2, dan2 * gop2);
+				++dan2;
+			}
+			System.out.println();
+			++gop2;
+		}
+
+	}
+}
