@@ -16,7 +16,7 @@ public class B06_ForQuiz2_2 {
 				if (isMinus) {
 					System.out.printf("-%d ", i);
 				} else {
-				System.err.print(i + " ");
+				System.out.print(i + " ");
 				}
 				
 				if (++cnt % 10 == 0) {
