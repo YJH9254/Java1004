@@ -1,0 +1,31 @@
+package quiz;
+
+public class B14_ShuffleChar {
+	
+	public static void main(String[] args) {
+		
+		String input = "STRAWBERRY";
+		
+		// 문자열 길이 크기의 char[]로 변환
+		// ['S', 'T', 'R', ...
+		char[] chs = new char[input.length()];
+		
+		for (int i = 0; i < input.length(); ++i) {
+			chs[i] = input.charAt(i);
+		}
+		
+		// 랜덤 위치의 두 문자의 순서를 계속 바꾼다
+		for (int i = 0; i < 100; ++i) {
+			// 문자열 길이가 12일때 1 ~ 11까지의 랜덤 인덱스를 생성
+			int ran = (int)(Math.random() * (chs.length - 1) + 1);
+			
+			// 맨 앞의 문자와 랜덤 위치의 문자를 교환한다
+			char temp = chs[0];
+			chs[0] = chs[ran];
+			chs[ran] = chs[0];
+		}
+		
+		System.out.print("섞은 후: ");
+		System.out.println(chs);
+	}
+}
