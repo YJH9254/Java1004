@@ -1,1 +1,28 @@
 
+package quiz;
+
+public class B14_Shuffleberry {
+	
+	public static void main(String[] args) {
+		
+		String red = "STRAWBERRY";
+		int len = red.length();
+		int[] index = new int[len];
+		
+		
+		for (int i = 0; i < len; ++i) {
+			index[i] = (int)(Math.random() * len);
+				
+			for (int j = 0; j < i; ++j) {
+				if (index[i] == index[j]) {
+					--i;
+					break;
+				}
+			}
+		}
+		
+		for (int i = 0; i < len; ++i) {
+			System.out.print(red.charAt(index[i]));
+		}
+	}
+}
