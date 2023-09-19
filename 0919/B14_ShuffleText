@@ -1,0 +1,42 @@
+package quiz;
+
+import java.util.Scanner;
+
+public class B14_ShuffleText {
+
+	/*
+	 * 사용자로부터 단어를 입력받으면 해당 단어를 랜덤으로 뒤섞어주는 프로그램을 만들어보세요
+	 * 
+	 * 바보멍청이 -> 멍이바청보
+	 * 
+	 * 인덱스 0,1,2,3,4를 중복없이 랜덤으로 뽑는다
+	 */
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("문장을 랜덤으로 섞어섞어~ 입력>>");
+		String word = sc.next();
+		
+		int len = word.length();
+		int[] ranIndex = new int[len];
+		
+		// 문자열의 길이가 10일때 0 ~ 9까지의 랜덤 숫자를 생성
+		for (int i = 0; i < len; ++i) {
+			ranIndex[i] = (int)(Math.random() * len);
+			
+			// 이번에 뽑은 번호가 이전 번호중에 있는지 검사
+			for (int j = 0; j < i; ++j) {
+				if (ranIndex[i] == ranIndex[j]) {
+					--i;
+					break;
+				}
+			}
+		}
+		
+		// 문자열을 그 순서대로 출력
+		for (int i = 0; i < ranIndex.length; ++i) {
+			System.out.print(word.charAt(ranIndex[i]));
+		}
+	}
+}
