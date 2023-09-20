@@ -1,0 +1,84 @@
+package quiz;
+
+import java.security.DomainCombiner;
+
+public class C01_FunctionQuiz {
+
+	/*
+	 * # 다음 함수를 정의하고 올바르게 동작하는지 테스트 해보세요
+	 * 
+	 * 1. 전달한 문자가 알파벳이면 true를 반환, 아니면 false를 반환하는 함수
+	 * 
+	 * 2. 전달한 숫자가 3의 배수이면 true를 반환, 아니면 false를 반환하는 함수
+	 * 
+	 * 3. 숫자를 하나 전달하면 문자열 "짝수입니다" 또는 "홀수입니다"를 반환하는 함수
+	 * 
+	 * 4. 숫자를 전달하면 해당 숫자의 모든 약수를 int[]로 반환하는 함수
+	 * 
+	 * 5. 전달한 정수가 소수(prime)라면 true를 반환하고 아니면 false를 반환하는 함수
+	 * 
+	 * 6. 메세지와 횟수를 전달하면 해당 메세지를 전달한 횟수만큼 반복하는 함수
+	 */
+
+	// 1번
+	public static boolean alphabetTest(char alphabet) {
+
+		if (alphabet >= 'A' && alphabet <= 'Z' || alphabet >= 'a' && alphabet <= 'z') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// 2번
+	public static boolean number2(int num2) {
+		if (num2 % 3 == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// 3번
+	public static String number3(int num3) {
+		if (num3 % 2 == 0) {
+			return "짝수입니다";
+		} else {
+			return "홀수입니다";
+		}
+	}
+
+	// 4번
+//	public static int number4(int num4) {
+//		
+//	}
+	// 5번
+	public static boolean number5(int num5) {
+
+		for (int i = 2; i < num5; i++) {
+			if (num5 % i == 0) {
+			} else {
+				return false;
+			}
+		}
+		return true;
+
+	}
+	// 6번
+
+	public static void main(String[] args) {
+
+		// 1번
+		System.out.println(alphabetTest('한'));
+
+		// 2번
+		System.out.println(number2(1));
+
+		// 3번
+		System.out.println(number3(3));
+
+		// 5번
+		System.out.println(number5(8));
+	}
+
+}
