@@ -1,0 +1,89 @@
+package myobj;
+
+public class Person {
+
+	public int maxStress = 100;
+	public int currentStress = 35;
+	public int full = 50;
+	public String condition = "매우 안좋음";
+
+	public Person() {
+	}
+
+	public Person(int maxStress) {
+
+		this.maxStress = maxStress;
+		this.currentStress = 5;
+		this.full = 50;
+		this.condition = "행복함";
+	}
+
+	public Person(int maxStress, int currentStress, int full, String condition) {
+
+		this.maxStress = maxStress;
+		this.currentStress = currentStress;
+		this.full = full;
+		this.condition = condition;
+	}
+
+	public void info() {
+		System.out.printf("불행지수:%d/행복지수:%d/분노시점/%d/%s\n",
+				maxStress, currentStress, full, condition);
+
+	}
+}
+
+//	void goodNews() {
+//		if (this.maxStress > this.currentStress) {
+//			++this.currentStress;
+//		} else {
+//			System.out.println("[Condition] 스트레스가 심합니다. " + "건강에 유의하세요.");
+//		}
+//
+//	}
+//
+//	void badNews() {
+//		if (this.currentStress > 0) {
+//			--this.currentStress;
+//		} else {
+//			System.out.println("[Condition] 당신은 지금 행복합니다.");
+//		}
+//	}
+//
+//	void personCondition() {
+//		System.out.printf("현재 사람의 상태 %d/%d(%s)\n", this.currentStress, this.maxStress, this.full ? "매우 화가남" : "매우 평온함");
+//
+//	}
+//
+//	public static void main(String[] args) {
+//
+//		// Person 클래스의 인스턴스를 3개 생성
+//		// new를 붙여서 인스턴스를 생성 할 수 있다
+//		Person p1 = new Person();
+//		Person p2 = new Person();
+//		Person p3 = new Person();
+//
+//		// 생성된 인스턴스에 .을 찍고 해당 클래스의 변수와 메서드를 사용할 수 있다
+//		p1.maxStress = 100;
+//		p1.currentStress = 37;
+//
+//		p2.maxStress = 100;
+//		p2.currentStress = 50;
+//
+//		p3.full = false;
+//
+//		p1.personCondition();
+//		p2.personCondition();
+//		p3.personCondition();
+//
+//		// 클래스에 정의한 메서드로 각 인스턴스를 변화시킬 수 있다
+//		for (int i = 0; i < 10; ++i) {
+//			p1.goodNews();
+//			p2.badNews();
+//		}
+//
+//		p1.personCondition();
+//		p2.personCondition();
+//		p3.personCondition();
+//	}
+//}
