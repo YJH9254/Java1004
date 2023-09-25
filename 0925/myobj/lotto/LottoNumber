@@ -1,0 +1,45 @@
+package myobj.lotto;
+
+import java.util.Arrays;
+
+public class LottoNumber {
+	
+	// ※ 해당 메서드에서 this를 사용할 예정이라면 static을 사용하지 않는다
+	
+	// 당첨 번호는 7개, 뽑는 번호는 6개
+	int[] numbers;
+	
+	public LottoNumber(boolean winNum) {
+		
+		if (winNum) {
+			numbers = new int[7];
+		} else {
+			numbers = new int[6];
+		}
+	}
+	
+	public int getRandomNumber() {
+		return (int)(Math.random() * 45 + 1);
+	}
+	
+	// 현재 인스턴스의 numbers 배열을 중복없는 랜덤 숫자로 가득 채움
+	public void generate() {
+		int len = numbers.length;
+		
+		for (int i = 0; i < len; ++i) {
+			numbers[i] = getRandomNumber();
+			
+			for (int j = 0; j < i; ++j) {
+				if (numbers[i] == numbers[j]) {
+					--i;
+					break;
+				}
+			}
+		}
+	}
+	
+	public void print() {
+		System.out.println(Arrays.toString(numbers));
+	}
+	
+}
