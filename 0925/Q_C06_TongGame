@@ -1,0 +1,52 @@
+package quiz;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class C06_TongGame {
+	
+	/*
+	 	통아저씨 게임을 만들어보세요
+	 	
+	 	(1) 게임이 시작되면 꽝 자리가 정해진다
+	 	
+	 	(2) 플레이어는 아저씨가 발사될때까지 계속 자리를 선택해야 한다
+	 	
+	 	(3) 칼을 찌를 수 있는 홈은 20개가 있고 그 중 4개가 꽝이 된다
+	 		(꽝의 위치는 매 판마다 랜덤으로 재설정되어야 한다)
+	 	
+	 	(4) 아저씨가 발사되면 몇 번 만에 발사되었는지 알려주는 메세지가 나온다
+	*/
+	
+	public static void main(String[] args) {
+
+		final int TOTAL = 20;
+			 	
+		Scanner sc = new Scanner(System.in);
+		System.out.println("!!!통아저씨 게임이 시작됩니다!!!");
+		System.out.println("LOADING . . .");
+		System.out.println("숫자를 입력하세요>>");
+		
+		int[] bang = new int[4];
+		int entNum = sc.nextInt();
+		int cnt = 1;
+		
+		// System.out.println("랜덤 숫자: " + ran);
+		
+		// 중복검사
+		for (int i = 0; i < 4; i++) {
+			int ran = (int)(Math.random() * TOTAL + 1);
+			bang[i] = ran;
+			
+			for (int j = 0; j < i; j++) {
+				if (bang[i] == bang[j]) {
+					--i;
+					break;
+				}
+			}
+		}
+		System.out.println(Arrays.toString(bang));
+		
+	}
+	
+}
