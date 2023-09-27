@@ -1,0 +1,98 @@
+package myobj.baseball;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BaseballGame {
+
+	// 입력을 받아야되니 void play 작성중에 스캐너를 만든다
+	Scanner sc = new Scanner(System.in);
+
+	// int배열로 답을 받음
+	int[] answers;
+	// 찬스는 9번
+	int chance = 9;
+	
+	// true일 경우 정답이 나오고 false를 해놓으면 정답이 나오지 않는다
+	boolean DEBUG_MODE = true;
+
+	// 처음 만들때 해당 클래스의 이름으로 필요한 배열을 만든다
+	public BaseballGame() {
+		answers = new int[4];
+		// 바로 아래 클래스를 받는다
+		// Initialization(이니셜리제이션): 초기화
+		initAnswer();
+	}
+
+	// 필요한 배열의 길이만큼 for문을 통해 랜덤숫자를 배열에 받는다
+	public void initAnswer() {
+		for (int i = 0; i < answers.length; ++i) {
+			// answers[i]에 랜덤 숫자를 받는다
+			answers[i] = (int) (Math.random() * 10);
+
+			for (int j = 0; j < i; ++j) {
+				if (answers[i] == answers[j]) {
+					--i;
+				}
+			}
+		}
+	}
+
+	public void play() {
+		
+		// 찬스가 0번을 초과할때 String 문자열로 유저가 추측한 답변을 sc.next()로 받음 
+		while (chance > 0) {
+			if (DEBUG_MODE) {
+			System.out.println(Arrays.toString(answers));
+			}
+			System.out.println("남은기회: " + chance);
+			System.out.print(">> ");
+			String userGuess = sc.next();
+			
+			// 사용자가 입력한 userGuess와 현재 정답인 answers를 비교한 결과
+			PitchResult result = checkPitch(userGuess);
+			
+			System.out.printf("%s : %ds %db\n",
+					result.guess, 
+					result.strike, 
+					result.ball);
+			
+			if (result.strike == 4) {
+				System.out.println("승리");
+				break;
+			}
+			
+			--chance;
+		}
+	}
+	
+	// 체크 결과 리턴해야 하는 값이 여러개인 경우
+	// 데이터를 클래스로 묶어서 전달하는 방식을 고려해볼 수 있다
+	public PitchResult checkPitch(String userGuess) {
+		char[] guess = userGuess.toCharArray();
+		
+		int strike = 0;
+		int ball = 0;
+		
+		for (int i = 0; i < answers.length; ++i) {
+			for (int j = 0; j < guess.length; ++j) {
+				// "1234" -> guess '1','2','3','4' vs answers 3,4,5,6
+				// '0'을 빼는 이유는 ''을 빼기 위해서다. char[]
+				if(answers[i] == (guess[j] - '0')) {
+					if (i == j) {
+						++strike;
+					} else {
+						++ball;
+					}
+					break;		
+				}
+			}
+		}
+		
+		// 결과로 하나의 인스턴스를 생성하여 리턴해준다
+		PitchResult result = new PitchResult(userGuess, strike, ball);
+		
+		return result;
+	}
+
+}
