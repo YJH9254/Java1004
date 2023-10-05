@@ -2,9 +2,9 @@ package myobj.prizedraw;
 
 public class Prize {
 
-	String name;
-	int qty;
-	double chance;
+	String name;	// 상품이름
+	int qty;		// 수량
+	double chance;	// 확률
 
 	public Prize(String name, int qty, double chance) {
 		this.name = name;
