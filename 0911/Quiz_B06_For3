@@ -17,7 +17,7 @@ public class B06_ForQuiz3 {
 		}
 		System.out.println();
 		
-		// 3. 100 200 300 ...args 800 900 1000
+		// 3. 100 200 300 ... 800 900 1000
 		for (int i = 100; i <= 1000; i += 100) {
 			System.out.print(i + " ");
 		}
