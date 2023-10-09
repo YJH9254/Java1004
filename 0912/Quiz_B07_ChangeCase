@@ -5,8 +5,9 @@ import java.util.Scanner;
 public class B07_ChangeCase {
 
 	/*
-	 * 사용자가 문장을 입력하면 대문자는 소문자로, 소문자는 대문자로 바꿔서 출력해보세요 (영어가 아닌 문자는 그대로 출력)
-	 */
+	  사용자가 문장을 입력하면 대문자는 소문자로, 소문자는 대문자로 바꿔서 출력해보세요 
+	  (영어가 아닌 문자는 그대로 출력)
+        */
 
 	public static void main(String[] args) {
 
