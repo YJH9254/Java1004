@@ -1,0 +1,28 @@
+package quiz;
+
+import myobj.lotateshape.ShapeBoard;
+
+public class C17_RotateShape {
+	
+	/*
+	  	2차원 배열로 이루어진 어떤 모양이 있을 때
+	 	해당 모양을 오른쪽으로 90도 회전시키는 프로그램을 만들어보세요
+	 	
+	 	□ ■ ■ □				□ □ □ □
+	 	□ □ ■ □		=> 		□ □ □ ■
+	 	□ □ ■ □				□ ■ ■ ■
+	 	□ □ □ □				□ □ □ □
+	 	
+	 	 x1x2 
+	   y1			=> x1, y1 -> x2, y1
+	   				   x1, y2 -> x1, y1
+	   y2			   x2, y1 -> x2, y2
+	   				   x2, y2 -> x1, y2
+	*/
+	public static void main(String[] args) {
+		
+		ShapeBoard board1 = new ShapeBoard();
+		
+		board1.print();
+	}
+}
