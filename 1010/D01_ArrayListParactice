@@ -1,0 +1,52 @@
+package quiz;
+
+import java.util.ArrayList;
+
+public class D01_ArrayListParactice {
+	
+	/*
+	 	1. 리스트에 1000 ~ 2000 사이의 랜덤 정수를 100개 추가하기
+	 	
+	 	2. 원본에서 짝수를 모두 제거한 후 총합을 구하기
+	 	
+	 	3. 원본에서 홀수를 모두 제거한 후 총합을 구하기
+	*/
+	public static void main(String[] args) {
+		// 제네릭에는 일반형 변수 타입을 사용할 수 없다
+		// (각 기본형 타입의 참조형 버전 타입을 사용해야 한다)
+		ArrayList<Integer> numbers = new ArrayList<>();
+		
+		// 1. 1000 ~ 2000 사이의 랜덤 정수를 100개 추가
+		for (int i = 0; i < 100; i++) {
+		int ran = (int)(Math.random() * 1001 + 1000);
+		numbers.add(ran);
+		}
+		System.out.println(numbers);
+		
+		// 2. 원본에서 짝수를 모두 제거한 후 총합을 구하기
+		//    홀수만 골라서 출력하기
+		
+		int odd = 0;
+		int even = 0;
+		for (int i = 0; i < 100; i++) {
+			if (numbers.get(i) % 2 == 0) {
+				numbers.remove(i);
+	
+			} else {
+				if (numbers.get(i) % 2 == 1) {
+				even += numbers.get(i);
+				}
+			}
+		}
+		
+		// System.out.println("짝수를 제거한 후 총합: " + odd);
+		// System.out.println("홀수를 제거한 후 총합: " + even);
+				
+	
+		//numbers.removeAll(odd);
+		
+		// 3. 원본에서 홀수를 모두 제거한 후 총합을 구하기
+		// numbers.removeAll(even);
+		
+	}
+}
