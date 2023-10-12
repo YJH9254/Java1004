@@ -1,0 +1,118 @@
+package quiz;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+public class D05_YachtDice {
+	
+	/*
+	 	1. 주사위를 다섯개 던진다
+	 	
+	 	2. 각 주사위의 눈을 가지고 어떤 패가 만들어졌는지 구분해야 한다
+	 	
+	 	3. 다섯개의 주사위 눈을 통해 다음을 구분한다
+	 	
+	 		(1) 풀 하우스 (같은 눈이 3/2개)
+	 			
+	 			ex> 11222, 33311, 55566, 56556 ...
+	 		
+	 		(2) 스몰 스트레이트 (1234/2345/3456)
+	 		
+	 			ex> 12346, 64513 ...
+	 			
+	 		(3) 라지 스트레이트 (12345/23456)
+	 		
+	 			ex> 54321, 24356 ...
+	 			
+	 		(4) Three of kind (같은 주사위 눈이 3개)
+	 			
+	 			ex> 31323, 66651, ...
+	 			
+	 		(5) Four of kind (같은 눈 4개)
+	 			
+	 			ex> 44144, ...
+	 		
+	 		(6) Yacht (같은 눈 5개)
+	 			ex> 66666, 11111 ...
+	*/	
+	public static void main(String[] args) {
+		
+		HashSet<Integer> small1 = new HashSet<>();
+		HashSet<Integer> small2 = new HashSet<>();
+		HashSet<Integer> small3 = new HashSet<>();
+		HashSet<Integer> large1 = new HashSet<>();
+		HashSet<Integer> large2 = new HashSet<>();
+		
+		small1.add(1);
+		small1.add(2);
+		small1.add(3);
+		small1.add(4);
+		small2.add(2);
+		small2.add(3);
+		small2.add(4);
+		small2.add(5);
+		small3.add(3);
+		small3.add(4);
+		small3.add(5);
+		small3.add(6);
+		large1.add(1);
+		large1.add(2);
+		large1.add(3);
+		large1.add(4);
+		large1.add(5);
+		large2.add(2);
+		large2.add(3);
+		large2.add(4);
+		large2.add(5);
+		large2.add(6);
+		
+		// HashSet<Integer> numbers = new HashSet<>(); *Set은 중복이 안된다
+		ArrayList<Integer> numbers = new ArrayList<>();
+		
+		// 반복문을 통해서 numbers(던지는 주사위 갯수=size)만큼 반복한다
+		// 반복문을 통해서 List컬렉션을 통해서 numbers에 1~6개의 랜덤 숫자를 넣는다 
+		while (numbers.size() < 5) {
+		numbers.add((int)(Math.random() * 6 + 1));
+		}
+		
+		int count = 1;
+		
+		// for문을 통해서 6번의 반복을 한다
+		// Collections.frequency를 통해서 i값이 몇 번 나오는지 세어준다
+		for (int i = 0; i < 6; i++) {
+			int cnt = Collections.frequency(numbers, i + 1);
+			//System.out.printf("%d이(가) 나온 횟수: %d\n", i + 1, cnt);
+			
+			// if문을 통해서 cnt가 5, 4, 3-2, 3인 경우의 수를 구한다
+			if (cnt == 5) {
+				System.out.println("☆★☆☆★☆Yacht☆★☆☆★☆");
+				break;
+			} else if (cnt == 4) {
+				System.out.println("▶▶▶Four of kind◀◀◀");
+				break;
+			} else if (cnt == 3 && cnt == 2) {
+				System.out.println("풀 하우스 입니다.");
+				break;
+			} else if (cnt == 3) {
+				System.out.println("Three of kind!");
+				break;
+			} else {
+				count++;
+			}
+			if (count == 5) {
+				Collections.sort(numbers);
+				Set<Integer> numberSet = new HashSet<>(numbers);
+				System.out.println(numberSet);
+				if (numberSet == small1 || numberSet == small2 ||
+					numberSet == small3) {
+					System.out.println("스몰 스트레이트 입니다");
+				}
+			}
+		}
+		
+		System.out.println("▣ Dice Numbers\n" + numbers);
+	}
+
+}
