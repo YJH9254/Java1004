@@ -1,0 +1,33 @@
+package myobj.blackjack;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+
+public class Card {
+	public static List<String> cardSet = new ArrayList<>();
+	
+	public static String[] numbers = {"1", "2", "3", "4", "5", 
+			"6", "7", "8", "9", "10", "A", "Q", "K", "J"};
+	public static String[] shapes = {"♥", "♣", "♠", "◆"};
+	
+	static {
+		
+		for (String number : numbers) {
+			for (String shape : shapes) {
+				cardSet.add(number + shape);
+			}
+		}
+	}
+	
+	boolean choose(boolean hit) {
+		return hit = true;
+	}
+	
+	public void print() {
+		Collections.shuffle(cardSet);
+		System.out.println(cardSet);
+
+	}
+}
