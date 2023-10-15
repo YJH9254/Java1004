@@ -48,10 +48,33 @@ public class C01_FunctionQuiz {
 		}
 	}
 
-	// 4번
-//	public static int number4(int num4) {
-//		
-//	}
+	public static int[] number4(int num4) {
+		// cnt는 카운트. num4를 1, 2, 3 ... i로 나눴을때 나머지가 0인 경우마다 숫자를 센다
+	    int cnt = 0;
+	    for (int i = 1; i <= num4; i++) {
+	        if (num4 % i == 0) {
+	            cnt++;
+	        }
+	        // 체크용임 약수의 개수만큼 cnt가 생기는걸 볼 수 있다
+	        System.out.println("약수가 아니면 이전 숫자가 그대로 나옴" + cnt);
+	    }
+	    // int 배열형 div에 cnt(배열의 개수)를 넣기 위해서 new 연산자 + int[cnt]형태로 함수를 생성한다
+	    int[] div = new int[cnt];
+	    // System.out.println(Arrays.toString(div));
+	    int len = 0;
+	    // cnt는 약수의 개수이므로 12를 입력시 6이 된다(약수의 갯수가 6개임)
+	    // int div[6] 배열에 1부터 12까지 나머지가 0일때마다 div[길이]가 늘어날때마다 i를 집어 넣는다
+	    for (int i = 1; i <= num4; i++) {
+	    	// 입력한 숫자가 0이 되면 
+	        if (num4 % i == 0) {
+	            div[len++] = i;
+	            System.out.println(len);
+	        }
+	    }
+	    // number4에 div를 반환한다. div는 div[배열의 위치] 마다 i의 값을 집어넣음
+	    return div;
+	}
+
 	// 5번
 	public static boolean number5(int num5) {
 
