@@ -1,0 +1,31 @@
+package myobj.blackjack;
+
+import java.util.Collections;
+import java.util.List;
+
+public class CardDeck {
+	
+	List<Card> cards;
+	
+	final private int shuffleCount;
+	private int drawCount = 0;
+	
+	public CardDeck(List<Card> cards) {
+		this.cards = cards;
+		this.shuffleCount = cards.size();
+		shuffle();
+	}
+	
+	// 딜러가 섞고 싶을수도 있으니까 public으로 다른 클래스에게 접근이 가능케 한다
+	public void shuffle() {
+		Collections.shuffle(cards);
+	}
+	
+	public Card draw() {
+		if (drawCount == shuffleCount) {
+			drawCount = 0;
+			shuffle();
+		}
+		return cards.get(drawCount++);
+	}
+}
