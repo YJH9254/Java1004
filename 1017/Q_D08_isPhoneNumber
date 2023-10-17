@@ -1,0 +1,22 @@
+package quiz;
+
+public class D08_isPhoneNumber {
+	
+	/*
+	 	사용자로부터 입력받은 문자열이 
+	 	유효한 핸드폰 번호인지 검사하는 메서드를 만들어보세요
+	*/
+	public static void ablePhoneNumber(String sc) {
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		String sc = "010-1234-5678";
+		
+		char a = '0';
+		char b = '9';
+		
+	}
+}
