@@ -1,22 +1,85 @@
 package quiz;
 
+import java.util.Arrays;
+
 public class D08_isPhoneNumber {
 	
 	/*
 	 	사용자로부터 입력받은 문자열이 
 	 	유효한 핸드폰 번호인지 검사하는 메서드를 만들어보세요
 	*/
-	public static void ablePhoneNumber(String sc) {
+//	public static boolean numChk(String phoneNum) {
+//		
+//		
+//	}
+	
+//	public static boolean firstNumChk(String[] scArr) {
+//		
 		
+//		if (scArr[0] == "010" || scArr[0] == "011") {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
+	
+	public static boolean NumChk(String phNum) {
+		boolean zeroOne = false;
+		boolean restNum = false;
+		boolean length = false;
+		char[] numbers = phNum.toCharArray();
+		final int phLen = 11;
 		
+		char zo1 = '0';
+		char zo2 = '1';
+		char zo3 = '0';
+		
+		for (int i = 0; i < 3; i++) {
+			char ch = phNum.charAt(i);
+		
+			if (ch == zo1 || ch == zo2 || ch == zo3) {
+				zeroOne = true;
+			}
+		}
+		
+		for (int i = 0; i < phNum.length(); i++) {
+			char ch = phNum.charAt(i);
+			
+			if (ch >= '0' && ch <= '9') {
+				restNum = true;
+			}
+		}
+		
+		if (phLen == phNum.length()) {
+			length = true;
+		}
+		
+		if (zeroOne && restNum && length) {
+			System.out.println("휴대폰 번호가 맞습니다.");
+			return true;
+		} else {
+			System.out.println("휴대폰 번호가 아닙니다.");
+			return false;
+		}
 	}
 	
 	public static void main(String[] args) {
 		
-		String sc = "010-1234-5678";
+		String sc1 = "010-1234-5678";
+		String[] scArr = sc1.split("-");
 		
-		char a = '0';
-		char b = '9';
+		System.out.println(Arrays.toString(scArr));
+		String phNum = String.format("%3s%4s%4s", scArr[0], scArr[1], scArr[2]);
+		System.out.println(phNum);
 		
+		System.out.println(NumChk(phNum));
+//		String scArrSum = ""; 
+//		for (int i = 0; i < scArr.length; i++) {
+//			scArrSum += scArr[i];
+//		}
+//		System.out.println(scArr[0]);
+//		System.out.println(firstNumChk(scArr));
+		//System.out.println(firstNumChk(scArr));
 	}
+
 }
