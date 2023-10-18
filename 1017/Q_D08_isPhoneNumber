@@ -23,7 +23,7 @@ public class D08_isPhoneNumber {
 //		}
 //	}
 	
-	public static boolean NumChk(String phNum) {
+	public static boolean numChk(String phNum) {
 		boolean zeroOne = false;
 		boolean restNum = false;
 		boolean length = false;
@@ -37,7 +37,7 @@ public class D08_isPhoneNumber {
 		for (int i = 0; i < 3; i++) {
 			char ch = phNum.charAt(i);
 		
-			if (ch == zo1 || ch == zo2 || ch == zo3) {
+			if (ch == zo1 && ch == zo2 && ch == zo3) {
 				zeroOne = true;
 			}
 		}
@@ -72,7 +72,7 @@ public class D08_isPhoneNumber {
 		String phNum = String.format("%3s%4s%4s", scArr[0], scArr[1], scArr[2]);
 		System.out.println(phNum);
 		
-		System.out.println(NumChk(phNum));
+		System.out.println(numChk(phNum));
 //		String scArrSum = ""; 
 //		for (int i = 0; i < scArr.length; i++) {
 //			scArrSum += scArr[i];
