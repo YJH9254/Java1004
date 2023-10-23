@@ -1,0 +1,77 @@
+package quiz;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class D14_ParkingSystem {
+   /*
+       1. 2018년 9월 1일부터 끝번호차량 출입제한
+       월 1 6   목 4 9
+       화 2 7   금 5 0
+       수 3 8   공휴일, 휴무일 적용제외(장애인, 유아동승, 경차 등)
+       
+       2. 주차요금 최초30분 무료, 초과시 10분 마다 200원, 
+          1시간 초과시 10분 마다 300원
+       
+       3. 1일 주차(24시간)는 8,000원
+       
+       4. 1개월 정기주차권 70,000원
+   */
+   public static void main(String[] args) {
+      
+      Scanner sc = new Scanner(System.in);
+      System.out.println("번호판을 입력해주세요 >>");
+      
+      LocalDate endNumLimit = LocalDate.of(2018, 9, 1);
+      LocalDate now = LocalDate.now();
+      
+      DayOfWeek dow = now.getDayOfWeek();
+      String krDow = dow.getDisplayName(TextStyle.SHORT, Locale.KOREAN);
+      // System.out.println("끝번호제한 시작일: " + endNumLimit);
+      System.out.println("오늘 요일: " + krDow);
+      
+      // 차번호 입력(끝번호 구하기)
+      Car car = new Car();
+      car.endNum("42바1234");
+      
+      // 입력을 직접 받아서(끝번호 구하기)
+      String carNumber= sc.next();
+      int endNumber = carNumber.charAt(6);
+      // System.out.println("끝번호: " + (endNumber - 48));
+      int endN = (endNumber - 48);
+      System.out.println("차 끝번호: " + endN);
+      
+      // 요일마다 끝번호가 안될 경우
+      if (krDow.contains("월") && endN == 1 || krDow.contains("월") && endN == 6) {
+         System.out.println("끝번호 1, 6번은 출입 금지입니다.");
+      } else if (krDow.contains("화") && endN == 2 || krDow.contains("화") && endN == 7) {
+         System.out.println("끝번호 2, 7번은 출입 금지입니다.");
+      } else if (krDow.contains("수") && endN == 3 || krDow.contains("수") && endN == 8) {
+         System.out.println("끝번호 3, 8번은 출입 금지입니다.");
+      } else if (krDow.contains("목") && endN == 4 || krDow.contains("목") && endN == 9) {
+         System.out.println("끝번호 4, 9번은 출입 금지입니다.");
+      } else if (krDow.contains("금") && endN == 5 || krDow.contains("금") && endN == 0) {
+         System.out.println("끝번호 5, 0번은 출입 금지입니다.");
+      } else {
+         System.out.printf("어서오세요~ %s님 환영합니다. \n", carNumber);
+      }
+   	}
+}
+
+class Car {
+   String disablePerson;
+   String rideWithChild;
+   String lightCar;
+   String number;
+
+   public Car() {
+      this.number  = number;
+   }
+   
+   public void endNum(String number) {
+      System.out.println(number.charAt(6));
+   }
+}
