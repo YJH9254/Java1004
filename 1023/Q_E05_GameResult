@@ -1,0 +1,57 @@
+package myobj.rockpaer;
+
+import java.util.Scanner;
+
+public class GameResult {
+
+	public GameResult() {
+
+		int win = 0;
+		int tie = 0;
+		int lose = 0;
+		int cnt = 0;
+
+		while (true) {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("\n'가위', '바위', '보' 중에서 내주세요");
+			String user = sc.nextLine();
+			String[] com = { "가위", "바위", "보" };
+			int ran = (int) (Math.random() * 3);
+
+			if (user.contains("가위") && com[ran].contains("가위")) {
+				System.out.println("비겼습니다.");
+				tie++;
+			} else if (user.contains("가위") && com[ran].contains("바위")) {
+				System.out.println("졌습니다");
+				lose++;
+			} else if (user.contains("가위") && com[ran].contains("보")) {
+				System.out.println("이겼습니다");
+				win++;
+			} else if (user.contains("바위") && com[ran].contains("가위")) {
+				System.out.println("이겼습니다.");
+				win++;
+			} else if (user.contains("바위") && com[ran].contains("바위")) {
+				System.out.println("비겼습니다.");
+				tie++;
+			} else if (user.contains("바위") && com[ran].contains("보")) {
+				System.out.println("졌습니다.");
+				lose++;
+			} else if (user.contains("보") && com[ran].contains("가위")) {
+				System.out.println("졌습니다");
+				lose++;
+			} else if (user.contains("보") && com[ran].contains("바위")) {
+				System.out.println("이겼습니다");
+				win++;
+			} else if (user.contains("보") && com[ran].contains("보")) {
+				System.out.println("비겼습니다");
+				tie++;
+			} else {
+				System.out.println("'가위', '바위', '보' 중에서 내주세요");
+			}
+			cnt++;
+			System.out.println("----지금까지 전적----");
+			System.out.printf("현재까지 %d승 %d무 %d패 \n", win, tie, lose);
+		}
+
+	}
+}
