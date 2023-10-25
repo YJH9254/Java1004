@@ -1,0 +1,19 @@
+package quiz;
+
+public class E09_EncryptFile {
+	
+	/*
+	 	frankenstein.txt를 시저 암호방식으로 암호환 파일
+	 	frankenstein_encrypted.enc를 생성해보세요
+	 	
+	 	(1) byte 방식으로 한 글자씩 암호화하는 속도 측정해보기
+	
+	 	(2) char 방식으로 한 글자씩 암호화하는 속도 측정해보기
+	 	
+	 	(3) char[] 방식으로 암호화하는 속도 측정해보기
+	 	
+	 	(4) 버퍼를 추가하여 암호화하는 속도 측정해보기
+	 	
+	 	(5) 암호화했던 파일 복호화 해보기
+	*/
+}
