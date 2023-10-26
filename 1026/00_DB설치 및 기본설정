@@ -1,0 +1,40 @@
+ㅇ OracleXE112_Win64 다운로드
+ㅇ 설치시 포트번호(1521, 2030, 8080)
+ㅇ 윈도우 + R 치고 "cmd" 입력
+ㅇ cmd창에 "sqlplus" 입력
+ㅇ user-name에 "sys as sysdba" 입력
+ㅇ password에 "1234" 입력
+---------------로그인---------------
+ㅇ SQL> SELECT * FROM tabs; 입력
+ㅇ Ctrl + C 하면 중간에 멈출 수 있다
+ㅇ SQL> SELECT * FROM tabs; 입력
+-------------------------------------
+ㅇ 구글에 "sql developer" 검색
+ㅇ Windows 64-bit with JDK 11 included
+ㅇ 다운후에 SQL Developer 압축 실행
+ㅇ 임포트 환경설정 "아니오" 한다.
+ㅇ 좌측에 초록+를 누른다
+ㅇ Name 에 " " 원하는 이름을 입력한다
+ㅇ 사용자이름: sys 비번: 1234 입력한다
+ㅇ 접속을 누른다
+ ------------------------------
+ㅣ SELECT * FROM tabs;      ㅣ
+ㅣ SELECT * FROM all_users; ㅣ
+ ------------------------------ 입력
+ㅇ "질의 결과" 를 누른다. (컨트롤+엔터)
+ ------------------------------------------
+ㅣ-- 연습용 계정 HR 잠금 해제하기      ㅣ
+ㅣALTER USER hr ACCOUNT UNLOCK;  ㅣ
+ㅣ-- 연습용 계정 HR 비밀번호 변경하기ㅣ
+ㅣALTER USER hr IDENTIFIED BY 1234; ㅣ
+ ------------------------------------------
+위 명령문을 입력한뒤 
+NAME: 연습용 계정
+ID: HR / PW: 1234 를 입력한다.
+
+
+
+
+
+
+
