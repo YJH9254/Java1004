@@ -1,0 +1,8 @@
+F5 : 모두 실행
+Ctrl + Enter : 한줄 실행
+Ctrl + Shifht + Enter : 
+블록선택시: 블록 실행, 블록 미선택시: 모두 실행
+Ctrl + B : 쿼터 정리 정렬
+Ctrl + L : 한줄 삭제
+Ctrl + T : 새로운 쿼리 에디터 열기
+Ctrl + / : 쿼리 주석
