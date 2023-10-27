@@ -6,7 +6,7 @@ SELECT * FROM employees WHERE first_name LIKE '%a%'; -- 66행
 SELECT * FROM employees WHERE first_name LIKE '%e%'; -- 56행
 
 -- INTERESECT : 교집합
--- 이름에 a도 포함되고 b도 포함되는 사원들을 모두 조회
+-- 이름에 a도 포함되고 e도 포함되는 사원들을 모두 조회
 SELECT * FROM employees WHERE first_name LIKE '%a%' 
 INTERSECT
 SELECT * FROM employees WHERE first_name LIKE '%e%'; -- 27행
