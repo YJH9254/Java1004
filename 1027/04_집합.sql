@@ -16,7 +16,7 @@ SELECT * FROM employees WHERE first_name LIKE '%a%'
 INTERSECT
 SELECT * FROM employees WHERE first_name LIKE '%e%'
 INTERSECT
-SELECT * FROM employees WHERE first_name LIKE '%b%';
+SELECT * FROM employees WHERE first_name LIKE '%o%';
 
 -- UNION : 합집합 (중복행 제거)
 -- a가 포함되거나 e가 포함되는 모든 사원들을 조회
