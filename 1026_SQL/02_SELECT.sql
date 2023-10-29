@@ -1,3 +1,4 @@
+-- 02_SELECT.sql
 /*
     # SELECT 컬럼명 FROM 테이블명;
     
