@@ -45,6 +45,7 @@ FROM
 WHERE
     last_name = 'austin';
 
+-- AND를 통해서 연산 할 수 있다
 SELECT
     first_name,
     salary,
