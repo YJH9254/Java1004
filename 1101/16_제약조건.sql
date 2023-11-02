@@ -165,6 +165,8 @@ ALTER TABLE snacks MODIFY (
 );
 
 INSERT INTO snacks(snack_id, snack_name) VALUES(1, '포카칩');
+INSERT INTO snacks(snack_id, snack_name, snack_price) VALUES(1, '포카칩', null);
+
 SELECT * FROM snacks;
 
 /* 
@@ -258,3 +260,15 @@ SELECT * FROM coffeebeans;
 /*
     연습: 1:N 테이블에 제약조건 올바르게 추가해보기
 */
+
+ALTER TABLE soccerstadium ADD CONSTRAINT stadium_id_pk PRIMARY KEY(stadium_id);
+
+ALTER TABLE soccerstadium MODIFY (
+    stadium_name VARCHAR2(30) -- 제약조건 뿐 아니라 컬럼 타입도 수정 가능하다
+        CONSTRAINT stadium_name_nn NOT NULL,
+    stadium_address VARCHAR2(100) 
+        CONSTRAINT stadium_address_nn NOT NULL
+);
+ALTER TABLE soccerteam ADD CONSTRAINT team_leader_id_fk REFERENCES (team_leader_id);
+ALTER TABLE soccerteam ADD CONSTRAINT home_stadium_id_fk REFERENCES (home_stadium_id);       
+        
