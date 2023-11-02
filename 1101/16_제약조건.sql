@@ -133,4 +133,128 @@ INSERT INTO coffee VALUES (2, 'Caffe Latte', 2300, 'T');
 INSERT INTO coffee VALUES (3, '카페라떼', 2500, 'A');
 INSERT INTO coffee VALUES (3, '카페라떼', -2500, 'V');
 
+/*
+    2. 테이블 생성 후에 제약조건 따로 추가하기
+    
+    - ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 제약조건타입(컬럼명);
+    - NOT NULL, CHECK는 MODIFY로 컬럼을 수정해야 한다
+    - ALTER TABLE 테이블명 MODIFY는 CREATE TABLE과 문법이 같다
+*/
+CREATE TABLE snacks (
+    snack_id    NUMBER(5),
+    snack_name  VARCHAR2(50),
+    snack_price NUMBER(6)
+);
 
+SELECT * FROM snacks;
+SELECT * FROM user_constraints WHERE table_name = 'SNACKS';
+
+-- 이미 만들어진 테이블에 제약조건 추가하기
+ALTER TABLE snacks ADD CONSTRAINT snack_id_pk PRIMARY KEY(snack_id);
+ALTER TABLE snacks ADD CONSTRAINT snack_name_uk UNIQUE(snack_name);
+
+-- NOT NULL과 CHECK 제약조건은 ALTER TABLE이 아닌 다른 문법을 사용해야 한다
+
+-- 테이블을 수정하면서 제약조건을 추가할 수도 있다
+ALTER TABLE snacks MODIFY (
+    snack_name VARCHAR2(100) -- 제약조건 뿐 아니라 컬럼 타입도 수정 가능하다
+        CONSTRAINT snack_name_nn NOT NULL,
+    snack_price NUMBER(6) DEFAULT 1000
+        CONSTRAINT snack_price_positive CHECK (snack_price >= 0)
+        CONSTRAINT snack_price_nn NOT NULL
+);
+
+INSERT INTO snacks(snack_id, snack_name) VALUES(1, '포카칩');
+SELECT * FROM snacks;
+
+/* 
+    # 테이블 제약조건 삭제하기
+    
+    - ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명;
+*/
+SELECT * FROM user_constraints WHERE table_name = 'SNACKS';
+ALTER TABLE snacks DROP CONSTRAINT snack_price_nn;
+
+/*
+    # 테이블 제약조건 이름 변경하기
+    
+    - ALTER TABLE 테이블명 RENAME CONSTRAINT 원래이름 TO 바꿀이름;
+*/
+ALTER TABLE snacks RENAME CONSTRAINT snack_id_pk TO snacks_snack_id_pk;
+
+
+/*
+    3. 테이블 레벨에서 제약조건 추가하기
+    
+    - CREATE TABLE 내부에서 컬럼을 모두 정의한 이후 따로 제약조건을 후술하는 방식
+    - DEFAULT와 NOT NULL은 컬럼 레벨에서 정의해야 한다
+*/
+CREATE TABLE Clothes ( 
+    -- 컬럼 레벨
+    clothes_id NUMBER(5),
+    clothes_type VARCHAR2(15),
+        CONSTRAINT clothes_type_nn NOT NULL,
+    clothes_name VARCHAR2(50),
+    clothes_size VARCHAR2(10),
+    -- 테이블 레벨에서 제약조건을 따로 정의
+    CONSTRAINT clothes_id_pk PRIMARY KEY(clothes_id),
+    CONSTRAINT CLOTHES_size CHECK(clothes_size IN ('L', 'XL', 'S', 'XXL', 'M'))
+);
+
+SELECT * FROM user_constraints WHERE table_name = 'CLOTHES';
+
+/*
+    # 외래키 설정하기
+    
+    - 외래키 제약조건은 설정할 때 다른 테이블의 PK 또는 UK를 지정해야 한다
+    - 외래키로 설정된 컬럼은 값을 추가할 때 참조하는 컬럼에 존재하는 값
+      또는 null만 추가할 수 있다
+*/
+
+-- 1. 컬럼 레벨(테이블 생성과 동시에)에서 외래키 제약조건 설정하기
+CREATE TABLE CoffeeBeans (
+    bean_id NUMBER(5)
+        CONSTRAINT coffeebeans_bean_id_pk PRIMARY KEY,
+    bean_name VARCHAR2(30)
+        CONSTRAINT coffeebeans_bean_name_nn NOT NULL,
+    country_id CHAR(2)
+        CONSTRAINT coffeebeans_country_id_fk REFERENCES countries(country_id)
+);
+
+ALTER TABLE coffeebeans DROP CONSTRAINT coffeebeans_c_id_fk;
+
+-- 2. ALTER TABLE - ADD CONSTRAINT로 외래키 추가하기
+--    FOREIGN KEY(외래키컬럼) REFERENCES 부모테이블(부모컬럼);
+ALTER TABLE coffeebeans 
+ADD CONSTRAINT coffeebeans_c_id_fk 
+FOREIGN KEY(country_id) REFERENCES countries(country_id);
+
+-- 3. 테이블 레벨에서 추가하기
+DROP TABLE coffeebeans;
+PURGE recyclebin;
+
+SELECT * FROM user_constraints WHERE table_name = 'COFFEEBEANS';
+SELECT * FROM user_constraints WHERE table_name = 'COUNTRIES';
+SELECT * FROM countries;
+
+INSERT INTO coffeebeans VALUES(1, '짐바브웨커피콩', 'ZW');
+INSERT INTO coffeebeans VALUES(2, '한국커피콩', 'KR');
+INSERT INTO coffeebeans VALUES(3, '어딘지모르는커피콩', null);
+INSERT INTO coffeebeans VALUES(4, '일본커피콩', 'JP');
+INSERT INTO coffeebeans VALUES(5, '아르헨커피콩', 'AR');
+
+CREATE TABLE CoffeeBeans (
+    bean_id NUMBER(5),
+    bean_name VARCHAR2(30)
+        CONSTRAINT coffeebeans_bean_name_nn NOT NULL,
+    country_id CHAR(2),
+        CONSTRAINT coffeebeans_b_id_pk PRIMARY KEY(bean_id),
+        CONSTRAINT coffeebeans_c_id_fk FOREIGN KEY(country_id)
+            REFERENCES countries(country_id)
+);
+
+SELECT * FROM coffeebeans;
+
+/*
+    연습: 1:N 테이블에 제약조건 올바르게 추가해보기
+*/
