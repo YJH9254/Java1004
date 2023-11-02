@@ -19,3 +19,6 @@ REVOKE RESOURCE FROM testuser;
 
 -- 계정 비밀번호 변경하기
 ALTER USER testuser IDENTIFIED BY "4321";
+
+-- 계정 삭제하기
+DROP USER testuser;
