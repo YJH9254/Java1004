@@ -1,0 +1,116 @@
+package gui.quiz;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+	/*
+	 	# 실행하면 구구단이 출력되는 GUI 프로그램을 만들어보세요
+	 	
+	 	(1) 프로그램을 처음 시작하면 구구단 2단이 출력된 상태로 시작
+	 	
+	 	(2) + 버튼을 누르면 단이 증가하며 구구단 내용이 바뀜 (최대 9단 까지)
+	 	
+	 	(3) - 버튼을 누르면 단이 감소하며 구구단 내용이 바뀜 (최소 2단 까지)
+	*/
+		
+public class G08_Gugudan extends JFrame {
+	
+	public G08_Gugudan() {
+		setLayout(null);
+		
+		// ContentPane : 프레임 내에서 실제로 내용이 그려지는 곳
+		getContentPane().setBackground(Color.BLACK);
+		
+		JButton btn1 = new JButton("Button1");
+		
+		// 여러가지 버튼 설정들
+		btn1.setText("2단\n2 x 1 = 2");
+		btn1.setBounds(70, 70, 300, 400);
+		// 글씨색 설정
+		btn1.setForeground(new Color(161, 198, 255));
+		// 배경색 설정
+		btn1.setForeground(Color.BLACK);
+		//btn1.setEnabled(false);
+		
+		// 버튼을 눌렀을 때의 동작을 설정
+		btn1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().setBackground(Color.ORANGE);
+				System.out.println("버튼을 누르셨네요?");
+			}
+		});
+		
+		add(btn1);
+		add(new MyButton(400, 150, this));
+		add(new MyButton2(400, 350, this));
+		
+		setTitle("JButton Examples...");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocation(100, 100);
+		setSize(600, 600);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new G08_Gugudan();
+	}
+}
+
+class MyActionListener implements ActionListener {
+	
+	JFrame parent;
+	
+	public MyActionListener(JFrame parent) {
+		this.parent = parent;
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		parent.getContentPane().setBackground(Color.gray);
+	}
+}
+
+class MyButton extends JButton implements ActionListener {
+	JFrame parent;
+	
+	public MyButton(int x, int y, JFrame parent) {
+		super("플러스");
+		
+		this.parent = parent;
+		
+		setBounds(x, y, 100, 70);
+		setForeground(new Color(161, 198, 255));
+		setBackground(new Color(0, 0, 0));
+		addActionListener(this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		parent.getContentPane().setBackground(Color.green);
+	}
+}
+
+class MyButton2 extends JButton implements ActionListener {
+	JFrame parent;
+	
+	public MyButton2(int x, int y, JFrame parent) {
+		super("마이너스");
+		
+		this.parent = parent;
+		
+		setBounds(x, y, 100, 70);
+		setForeground(new Color(161, 198, 255));
+		setBackground(new Color(0, 0, 0));
+		addActionListener(this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		parent.getContentPane().setBackground(Color.green);
+	}
+}
