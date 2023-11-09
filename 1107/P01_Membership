@@ -1,0 +1,77 @@
+package teamproject;
+
+import java.util.Scanner;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class P01_Membership extends JFrame {
+	
+	// 비밀번호를 입력할 때 사용하는 필드
+	
+	public P01_Membership() {
+		super("JTextArea Sample");
+		setLayout(new GridLayout(1, 2));
+		
+		JLabel idLabel = new JLabel("ID: ");
+		JTextField idField = new JTextField();
+		
+		idField.setLocation(100, 100);
+		idField.setSize(200, 50);
+		idField.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println();
+			}
+		});
+		
+		// 비밀번호를 텍스트 필드를 하게 되면 옆사람에게 다 보인다
+		JLabel pwLabel = new JLabel("PW: ");
+		JPasswordField pwField = new JPasswordField();
+		// JTextfield pwField = new JTextField();
+		
+		add(idLabel);
+		add(idField);
+		
+		add(pwLabel);
+		add(pwField);
+		
+		// 컴포넌트의 적당한 크기를 정해보기 위한 이벤트
+		this.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentResized(ComponentEvent e) {
+				// System.out.println(e.getComponent());
+				System.out.println(
+						"x: " + e.getComponent().getX() +
+						", y:" + e.getComponent().getY());
+			}
+			
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				System.out.println(
+						"width: " + e.getComponent().getWidth() +
+						", height: " + e.getComponent().getHeight());
+			}
+		});
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(100, 100, 250, 80);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new P01_Membership();
+		
+		String email = "dkrk1234@naver.com";
+		String pass = "a123456789";
+		
+	}
+
+}
