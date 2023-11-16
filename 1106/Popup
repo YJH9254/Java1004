@@ -1,0 +1,28 @@
+package teamproject;
+
+import javax.swing.JOptionPane;
+
+public class Popup {
+	
+	public static void emailPopup(String email) {
+		JOptionPane.showMessageDialog(null, "잘못된 이메일 형식입니다.");
+	}
+	
+	public static void emailPopup2(String email) {
+		JOptionPane.showMessageDialog(null, "중복되는 이메일입니다.");
+	}
+	
+	public static void pwdPopup(String pwd) {
+		JOptionPane.showMessageDialog(null, "잘못된 비밀번호 형식입니다.");
+	}
+
+	public static void namePopup(String name) {
+		JOptionPane.showMessageDialog(null, "잘못된 이름 형식입니다.");
+	}
+	
+	public static void phoneNumPopup(String phoneNum) {
+		JOptionPane.showMessageDialog(null, "잘못된 전화번호 형식입니다.");
+	}
+	
+}
+
