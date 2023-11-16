@@ -1,0 +1,176 @@
+package teamproject;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class SignUpInterface extends JFrame {
+	
+	private String name;
+	private String pwd;
+	private String phoneNum;
+	private String email;
+	
+	public SignUpInterface() {
+		super("회원가입 화면입니다.");
+		
+		JLabel title;
+		JLabel title2;
+		JLabel emailLabel;
+		JLabel pwdLabel;
+		JLabel nameLabel;
+		JLabel phoneNumLabel;
+		JTextField emailField;
+		JPasswordField pwdField;
+		JTextField nameField;
+		JTextField phoneNumField;
+		JButton entBtn;
+		
+		setLayout(null);
+		 
+		// 라벨(문구, 크기, 폰트) 및 텍스트필드(크기)
+		title = new JLabel("호텔델루나에 오신것을 환영합니다!!");
+		title.setBounds(60, 100, 1000, 70);
+		title.setFont(new Font("굴림", Font.BOLD, 38));
+		title2 = new JLabel("회원정보를 입력하세요.");
+		title2.setBounds(135, 240, 1000, 70);
+		title2.setFont(new Font("굴림", Font.BOLD, 20));
+		  
+		emailLabel = new JLabel("메일주소 : ");
+		emailLabel.setBounds(135, 300, 250, 30);
+		emailLabel.setFont(new Font("굴림", Font.BOLD, 25));
+		emailField = new JTextField();
+		emailField.setBounds(275, 296, 330, 35);
+		
+		pwdLabel = new JLabel("비밀번호 : ");
+		pwdLabel.setBounds(135, 300, 250, 170);
+		pwdLabel.setFont(new Font("굴림", Font.BOLD, 25));
+		pwdField = new JPasswordField();
+		pwdField.setBounds(275, 366, 330, 35);
+		   
+		nameLabel = new JLabel("이　　름 : ");
+		nameLabel.setBounds(135, 300, 250, 310);
+		nameLabel.setFont(new Font("굴림", Font.BOLD, 25));
+		nameField = new JTextField();
+		nameField.setBounds(275, 436, 330, 35);
+		
+		phoneNumLabel = new JLabel("전화번호 : ");
+		phoneNumLabel.setBounds(135, 300, 250, 450);
+		phoneNumLabel.setFont(new Font("굴림", Font.BOLD, 25));
+		phoneNumField = new JTextField();
+		phoneNumField.setBounds(275, 506, 330, 35);
+		   
+		// 버튼(문구, 크기, 폰트, 색깔)   
+		entBtn = new JButton();
+		entBtn.setText("입력완료버튼");
+		entBtn.setBounds(135, 730, 470, 80);
+		entBtn.setFont(new Font("굴림", Font.BOLD, 30));
+		entBtn.setForeground(Color.BLUE);
+		   
+		add(title);
+		add(title2);
+		add(nameLabel);
+		add(nameField);
+		add(pwdLabel);
+		add(pwdField);
+		add(phoneNumLabel);
+		add(phoneNumField);
+		add(emailLabel);
+		add(emailField);
+		add(entBtn);
+		   
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setBounds(550, 10, 768, 1024);
+		setVisible(true);
+		
+		emailField.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String email1 = e.getActionCommand();
+				String ePattern = "[\\w]{6,20}@(\\w+)[.](com|net)";
+				
+				if (Pattern.matches(ePattern, email1) == true) {
+					System.out.println(email1 + "입력완료");
+					email = email1;
+				} else { 
+					email = null;
+					Popup.emailPopup(email1);
+				}
+			}
+		});
+		
+		pwdField.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String pass = e.getActionCommand();
+				
+				if (Pattern.matches("^.*(?=^.{8,15}$)(?=.*\\d)(?=.*[a-zA-Z])"
+						+ "(?=.*[!@#$%^&+=]).*$", pass) == true) {
+						System.out.println(pass + "입력완료");
+						pwd = pass; 
+				} else {
+					pwd = null;
+					Popup.pwdPopup(pwd);
+				}
+			}
+		});
+		
+		nameField.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String name1 = e.getActionCommand();
+				
+				if (Pattern.matches("^[가-힣]{2,6}$", name1) == true) {
+					System.out.println(name1 + "입력완료");
+					name = name1; 
+				} else { 
+					name = null;
+					Popup.namePopup(name);
+				}
+			}
+		});
+		
+		phoneNumField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String phoneNumber = e.getActionCommand();
+                String pPattern = "^01(?:0|1|[6-9])"
+                		+ "[.-]?(\\d{3}|\\d{4})[.-]?(\\d{4})$";
+
+                if (Pattern.matches(pPattern, phoneNumber) == true) {
+                	System.out.println(phoneNumber + "입력완료");
+                    phoneNum = phoneNumber;
+                } else {
+                    phoneNum = null;
+                    Popup.phoneNumPopup(phoneNum);
+                }
+            }
+        });
+
+        entBtn.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		MemberDao.addMember(name, pwd, phoneNum, email);
+        	}
+        });
+    }
+
+	@Override
+    public String toString() {
+        return "SignUpInterface [name=" + name + ", pwd=" + pwd + ", phoneNum=" + phoneNum + ", email=" + email + "]";
+    }
+
+    public static void main(String[] args) {
+        new SignUpInterface();
+    }
+    
+}
+
