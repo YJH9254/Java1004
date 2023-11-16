@@ -1,0 +1,52 @@
+package teamproject;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class MemberDao {
+
+	 public static void addMember(String email, String pwd, String name, String phoneNum) {
+
+		try (Connection conn = DBConnector.getConnection()) {
+			conn.setAutoCommit(false);
+
+			String countSQL = "SELECT COUNT(m_email) AS email_count FROM member WHERE m_email = ?";
+
+			try (PreparedStatement countStatement = conn.prepareStatement(countSQL)) {
+				countStatement.setString(1, email);
+
+				ResultSet rs = countStatement.executeQuery();
+
+				if (rs.next()) {
+					int emailCount = rs.getInt("email_count");
+					if (emailCount > 0) {
+						System.out.println("중복되는 이메일입니다.");
+						Popup.emailPopup2(email);
+						conn.rollback();
+						return;
+					} else {
+						System.out.println("사용할 수 있는 이메일입니다.");
+
+						String insertSQL = "INSERT INTO member (" 
+								+ "m_no, m_email, m_pwd, m_name, m_phonenum) "
+								+ "VALUES (m_no_seq.nextval, ?, ?, ?, ?)";
+
+						try (PreparedStatement insertStatement = conn.prepareStatement(insertSQL)) {
+							insertStatement.setString(1, email);
+							insertStatement.setString(2, pwd);
+							insertStatement.setString(3, name);
+							insertStatement.setString(4, phoneNum);
+
+							insertStatement.executeUpdate();
+						}
+						conn.commit();
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+	}
+}
