@@ -1,0 +1,73 @@
+package teamproject;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Reader {
+	
+	StringBuilder mText = new StringBuilder();
+	
+	public Reader(String fileName) {
+		
+		File f = new File("myfiles/" + fileName + ".txt");
+		
+		try (
+			FileReader fin = new FileReader(f);
+			BufferedReader in = new BufferedReader(fin);
+		){
+			String line;
+			
+			while ((line = in.readLine()) != null) {
+				//System.out.println(line);
+				this.mText.append(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		BufferedInputStream in = new BufferedInputStream(System.in);
+		
+		try {
+			int data = in.read();
+			System.out.println(data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		InputStreamReader isr = new InputStreamReader(System.in);
+		
+		try {
+			int ch = isr.read();
+			
+			System.out.println((char)ch);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		BufferedReader bin = new BufferedReader(isr);
+		
+		try {
+			System.out.println("buffered >> ");
+			String line = bin.readLine();
+			
+			System.out.println(line);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public String getText() {
+		return this.mText.toString();
+	}
+	
+	public static void main(String[] args) {
+		new Reader("main");
+	}
+}
