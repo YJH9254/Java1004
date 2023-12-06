@@ -1,0 +1,71 @@
+div {
+    border: solid 3px black;
+    font-size: 30px;
+    height: 300px; /* 요소 높이 결정 */
+}
+
+#div1 {
+    /* 배경 이미지 설정*/
+    background-image: url('https://news.kbs.co.kr/data/news/2021/10/18/20211018_iYfwL8.jpg');
+
+    /* 배경 이미지의 크기 설정 (너비, 높이) */
+    background-size: auto 150px;
+}
+
+#div2 {
+    background-color: black;
+    background-image: url('https://www.ekr.or.kr/Kkrpub/webzine/2022/06/img/002season/season-1.jpg');
+    background-size: auto 80px;
+
+    /* 
+        # 배경 이미지의 반복 설정
+
+        repeat(default) : 반복함
+        no-repeat: 반복 안함
+        repeat-x : 수평으로만 반복함
+        repeat-y : 수직으로만 반복함
+        round : 이미지가 짤리지 않고 요소에 꽉 차게 들어갈만큼 반복
+                (이미지가 짤릴 위험에 처하면 크기를 조절해서라도 막는다
+        space : 이미지가 짤리지 않고 요소에 들어가게 반복
+                (공백을 사용해서 이미지의 비율이 일그러지는 것을 막는다)
+    */
+    background-repeat: space;
+}
+
+
+#div3 {
+    background-image: url('https://www.ekr.or.kr/Kkrpub/webzine/2022/06/img/002season/season-1.jpg');
+    background-size: auto 150px;
+    background-repeat: no-repeat;
+
+    /* 
+        # 배경 이미지의 위치 설정
+
+        - 정해진 이름들로 위치 정하기 (left, right, center, top, bottom)
+        - 직접 위치 지정하기도 가능 (x, y로 설정)
+    */
+    /* background-position: right bottom; */
+    /* background-position: left top; */
+    /* background-position: center top; */
+    /* background-position: center; */
+    background-position: 250px 100px; 
+}
+
+#div4 {
+    background-image: url('https://www.ekr.or.kr/Kkrpub/webzine/2022/06/img/002season/season-1.jpg');
+    height: 800px;
+    background-repeat: no-repeat;
+
+    /*
+        cover: 해당 요소를 가득 채울 수 있는 크기로 조절한다
+        contain: 해당 요소에 이미지가 완전히 포함될 수 있는 크기로 조절한다
+    */
+    background-size: contain;
+}
+
+#div5 {
+    background-image: url('https://news.kbs.co.kr/data/news/2021/10/18/20211018_iYfwL8.jpg');
+    background-attachment: fixed; /* 배경이 고정된다 */
+    background-size: cover;
+}
+
