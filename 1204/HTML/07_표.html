@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3># 웹 페이지에 표 출력하기</h3>
+
+    <p>
+        - &lt;table&gt; : 표를 의미하는 태그 <br>
+        - &lt;tr&gt; : table row, 표의 한 행을 의미하는 태그 <br>
+        - &lt;th&gt; : table header, 한 행에 제목 칸을 추가하는 태그 <br>
+        - &lt;th&gt; : table data, 한 행에 일반 칸을 추가하는 태그 <br>
+        - colspan attr : 해당 칸이 몇 열을 차지하는지 설정하는 속성 <br>
+        - rowspan attr : 해당 칸이 몇 행을 차지하는지 설정하는 속성 <br>
+    </p>
+
+    <table border="1">
+        <tr>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>총점</th>
+        </tr>
+        <tr>
+            <th>10</th>
+            <th>20</th>
+            <th>30</th>
+            <th>60</th>
+        </tr>
+    </table>
+
+    <hr>
+
+    <table border="3">
+        <tr>
+            <th>국어</th>
+            <td>30</td>
+        </tr>       
+        <tr>
+            <th>영어</th>
+            <td>40</td>
+        </tr>       
+        <tr>
+            <th>수학</th>
+            <td>50</td>
+        </tr>       
+        <tr>
+            <th>총점</th>
+            <td>120</td>
+        </tr>           
+    </table>
+
+    <hr>
+
+    <table border="2">
+        <tr>
+            <th>이름</th>
+            <th colspan="2">전화번호</th>
+        </tr>
+        <tr>
+            <td>김철수</td>
+            <td>02-123-4567</td>
+            <td>010-1234-1234</td>
+        </tr>
+        <tr>
+            <td>박철수</td>
+            <td>010-4321-4321</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <table border="2">
+        <tr>
+            <th>이름</th>
+            <th>과목</th>
+            <th>점수</th>
+        </tr>
+        <tr>
+            <td rowspan="3">김철수</td>
+            <td>국어</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>영어</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>수학</td>
+            <td>30</td>
+        </tr>
+    </table>
+    
+    <hr>
+
+    <!-- 연습문제 -->
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th colspan="6">Time Table</th>
+        </tr>
+        <tr>
+            <th rowspan="6">Hours</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+            <td>Sports</td>
+        </tr>
+        <tr>
+            <th colspan="5">Lunch</th>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td rowspan="2">Project</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>History</td>
+            <td>English</td>
+            <td>Social</td>
+        </tr>
+    </table>
+    
+    
+</body>
+</html>
