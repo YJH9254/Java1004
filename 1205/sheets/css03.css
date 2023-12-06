@@ -1,0 +1,13 @@
+/* css03.css */
+.detail {
+    font-size: 0.8em;
+}
+
+#quiz1 li:nth-of-type(even) {
+    border: solid 1px orangered;
+}
+
+#quiz2 li:first-child, #quiz2 li:last-child {
+    color: orangered;
+}
+
