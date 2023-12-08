@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    position: absolute;
+    border: 3px solid black;
+    width: 500px;
+    height: 400px;
+    background-color: white;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.gold {
+    background-color: gold;
+    color: white;
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+#abs-ex1 > :first-child {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    z-index: 3;
+}
+
+#abs-ex1 > :nth-child(2) {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: -1;
+}
+
+#abs-ex1 > :nth-child(3) {
+    position: absolute;
+    top: 0;
+    right: -25px;
+    z-index: 2;
+}
+
+#rel-ex1 > :first-child {
+    position: relative;
+    left: 200px;
+}
+
+#rel-ex1 > :nth-child(2) {
+    position: relative;
+    left: 250px;
+}
+
+#rel-ex1 > :nth-child(3) {
+    position: relative;
+    left: 300px;
+}
+
+#fixed {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 99;
+    width: 100%;
+}
+
+#sticky {
+    position: sticky;
+    right: 0;
+    bottom: 0;
+    z-index: 98;
+    width: 100%;
+    background-color: white;
+}
