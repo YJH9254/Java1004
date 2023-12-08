@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+#container1 {
+    border: solid 3px black;
+}
+
+#container1 > div {
+    border: solid 1px red;
+    display: inline;
+}
+
+#container2 > span {
+    border: solid 1px red;
+    display: block;
+    margin: 3px;
+}
+
+#example1, #example2 {
+    border: 3px solid black;
+    padding: 10px;
+}
+
+#example1 > div {
+    background-color: navy;
+    color: white;
+    font-weight: 900;
+    padding: 30px;
+    margin: 10px;
+}
+
+#example2 > span {
+    background-color: navy;
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+    margin: 10px;
+}
+
+#example3 > span {
+    display: inline-block;
+    background-color: navy;
+    color: white;
+    font-weight: bold;
+    padding: 30px;
+    margin: 10px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 3px solid black;
+}
+
+.red {
+    background-color: red;
+    color: white;
+}
+
+.gold {
+    background-color: gold;
+    color: white;
+}
+
+.green {
+    background-color: green;
+    color: white;
+}
+
+.none {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
