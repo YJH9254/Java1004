@@ -1,0 +1,27 @@
+#testDiv {
+    border: solid 3px black;
+    padding: 3px;
+    text-align: justify;
+}
+
+#testDiv::first-letter {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#testDiv::first-line {
+    text-decoration: underline 1px solid black;
+}
+
+#testDiv::selection {
+    background-color: red;
+    color: white;
+}
+
+#testDiv:before {
+    content: '😉';
+}
+
+#testDiv::after {
+    content: '😉';
+}
