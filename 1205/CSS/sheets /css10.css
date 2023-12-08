@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Korean&display=swap');
+
+#google-font-ex1 {
+    /* 폰트를 적용할 때 ,를 사용해 여러개를 적용해 두면
+        앞의 글꼴이 사용될 수 없을때 뒤의 글꼴을 사용한다.*/
+    font-family: 'Nanum Pen Script', '굴림', cursive;
+    font-size: 25px;
+}
+
+#google-font-ex2 {
+    font-family: 'Rubik Bubbles', '굴림', cursive;
+    font-size: 25px;
+}
+
+#google-font-ex3 {
+    font-family: 'Gasoek One', '굴림', cursive;
+    font-size: 25px;
+}
+
+#google-font-ex4 {
+    font-family: 'Noto Serif Korean', '굴림', cursive;
+    font-size: 25px;
+}
+
