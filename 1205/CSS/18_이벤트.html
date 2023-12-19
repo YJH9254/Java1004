@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18_이벤트.html</title>
+    <link rel="stylesheet" href="./resource/css18.css">
+</head>
+<body>
+    
+    <h3># 웹 페이지 이벤트 다루기</h3>
+
+    <ul>
+        <li>HTML 속성으로 이벤트 다루기 (onclick, onmouseover, ...)</li>
+        <li>자바스크립트로 해당 요소에 추가하기</li>
+    </ul>
+
+    <hr>
+
+    <h3># 이벤트 붙이는 방법</h3>
+
+    <!-- 이벤트 이름 앞에 on을 붙이면 html속성이 된다 -->
+    <div id="click1" class="box" onclick="this.style.backgroundColor='orange';">
+        onclick event(HTML)
+    </div>
+
+    <div id="click2" class="box">
+        click event(JS)
+    </div>
+
+    <h3># 이벤트 중첩 (버블링, 캡처링)</h3>
+
+    <ul>
+        <li>
+            계층적으로 만들어져있는 요소에서 이벤트가 발생하는 경우
+            이벤트가 전파된다
+        </li>
+        <li>
+            이벤트가 발생한 요소로부터 부모 요소로 전파되는 것을 버블링이라고 한다
+            (이벤트 추가시 기본 설정)
+        </li>
+        <li>
+            자식 요소에서 발생한 이벤트가 부모 요소부터 시작하여
+            자식 요소까지 도달하게 하는 것을 캡처링이라고 한다
+            (addEvenetListener() 3번째 매개변수를 true로 설정하는 경우 활성화)
+        </li>        
+        <li>
+            이벤트가 발생하는 경우 가장 부모 요소부터 이벤트가 발생한 요소까지 
+            캡처링을 먼저 진행한 후 다시 이벤트가 발생한 요소부터 버블링을 진행한다
+        </li>
+    </ul>
+
+    <div id="outer" class="bubble">
+        Outer div
+        <div id="inner1" class="bubble">
+            Inner div1
+            <div id="inner2" class="bubble">
+                Inner div2
+            </div>
+        </div>
+    </div>
+
+    <h3># 요소의 기본 이벤트 제거하기</h3>
+
+    <div>
+        글 제목 <input id="user-id" type="text"> <br>
+        <textarea id="user-intro" cols="30" rows="10"></textarea> <br>
+        <a id="link1" href="http://naver.com">네이버로</a>
+    </div>
+
+    <h3># 이벤트 효율적으로 사용하기(이벤트를 부모에게 위임)</h3>
+
+    <!-- 
+        연습문제: ul에만 이벤트를 달아서 어떤 요소가 클릭되었는지 
+                 정확하게 alert로 띄워주도록 만들어 보세요
+    -->
+    <ul id="parent">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+    </ul>
+
+    <script src="./resource/js18.js"></script>
+
+</body>
+</html>
