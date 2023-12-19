@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20_Node.html</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="resource/css20.css">
+</head>
+<body>
+    
+    <h3># Node</h3>
+
+    <ul>
+        <li>document 내부에 있는 모든 것을 Node라고 부른다</li>
+        <li>Element보다 더 작은 개념이다</li>
+        <li>하나의 요소를 Element Node와 Text Node로 나눌 수 있다</li>
+        <li>주석들은 Comment Node라고 부른다</li>
+        <li>자바스크립트에서 새 노드 객체를 생성하여 기존 노드에 추가할 수 있다</li>
+    </ul>
+
+    <h3># 자식 요소 추가하는 메서드</h3>
+
+    <ul>
+        <li>element.appendChild() : 맨 뒤에 새 노드를 추가</li>
+        <li>element.insertBefore(새 노드, 기준점 노드)</li>
+        <li>element.removeChild(node)</li>
+        <li>element.replaceChild(newNode, oldNode)</li>
+    </ul>
+    
+    <h3># 연습문제</h3>
+
+    <ol>
+        <ul>버튼을 누르면 out에 별이 추가되거나 제거된다</ul>
+        <ul>모든 버튼이 올바르게 동작한다</ul>
+        <ul>
+            각 별의 오른쪽 맨위 모서리에는 해당 별이 몇번째로 추가되었는지
+            알 수 있는 번호가 붙어있어야 한다
+        </ul>
+        <ul>
+            방향키 왼쪽을 누르면 shift
+            방향키 오른쪽을 누르면 unshift
+            방향키 위쪽을 누르면 push
+            방향키 아래쪽을 누르면 pop이 동작하도록 만들어보세요
+        </ul>
+    </ol>
+
+    <button id="pushBtn">Push!</button>
+    <button id="popBtn">Pop!</button>
+    <button id="shiftBtn">Shift!</button>
+    <button id="unshiftBtn">UnShift!</button>
+
+    <div id="out"></div>
+
+    <script src="./resource/js20.js"></script>
+
+</body>
+</html>
